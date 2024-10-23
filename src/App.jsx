@@ -216,7 +216,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="py-32 px-8">
         <div className="container mx-auto">
           <h2 className="text-4xl font-mono mb-12 flex items-center">
