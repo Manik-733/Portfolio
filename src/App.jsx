@@ -23,7 +23,6 @@ const Portfolio = () => {
   const [isDark, setIsDark] = useState(true);
   const [activeFilter, setActiveFilter] = useState("all");
 
-  // Rest of your theme configuration...
   const theme = {
     dark: {
       bg: "bg-slate-900",
@@ -168,7 +167,6 @@ const Portfolio = () => {
           </div>
 
           <div className="flex-1 flex justify-center">
-            {/* Added outer div for glow effect */}
             <div
               className={`p-2 rounded-full ${
                 isDark ? "bg-cyan-400/10" : "bg-blue-400/10"
@@ -180,7 +178,6 @@ const Portfolio = () => {
                 } shadow-xl 
                 ${isDark ? "shadow-cyan-500/20" : "shadow-blue-500/20"}`}
               >
-                {/* Replace the src with your actual image path */}
                 <img
                   src="/public/pic1.jpg"
                   alt="Manik Singh"
