@@ -155,7 +155,7 @@ const Portfolio = () => {
             <p
               className={`text-2xl ${currentTheme.secondaryText} max-w-3xl mb-8`}
             >
-              Cybersecurity Enthusiast @ Thompson Rivers University
+              Computer Science @ Thompson Rivers University
             </p>
             <p
               className={`text-xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed`}
