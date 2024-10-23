@@ -179,7 +179,7 @@ const Portfolio = () => {
                 ${isDark ? "shadow-cyan-500/20" : "shadow-blue-500/20"}`}
               >
                 <img
-                  src="/public/pic1.jpg"
+                  src="/pic1.jpg"
                   alt="Manik Singh"
                   className="w-full h-full object-cover"
                 />
