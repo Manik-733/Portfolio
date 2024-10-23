@@ -1,8 +1,32 @@
-# React + Vite
+https://maniksingh.fyi/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Manik's Personal Portfolio
 
-Currently, two official plugins are available:
+> A cybersecurity-focused portfolio website showcasing my projects and skills in digital security. Built with React and styled with TailwindCSS, featuring dynamic dark/light themes and smooth animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Dark/Light Theme Toggle
+- Fully Responsive Design
+- Terminal-Style Typing Animation
+- Project Filtering & Showcases
+- 🛡Cybersecurity Focus
+
+## Tech Stack
+
+- React 18
+- TailwindCSS
+- Lucide React Icons
+
+## Quick Start
+
+```sh
+# Clone repo
+git clone https://github.com/Manik-733/portfolio-website.git
+
+# Install dependencies
+npm install
+
+# Run development server
+npm start
+```
