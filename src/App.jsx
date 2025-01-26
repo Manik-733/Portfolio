@@ -102,42 +102,42 @@ const Portfolio = () => {
       >
         {isDark ? <SunIcon size={32} /> : <MoonIcon size={32} />}
       </button>
-
-      {/* Header */}
+      
       <header className={`p-8 border-b ${currentTheme.border}`}>
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <TerminalIcon size={32} />
-            <span className="text-2xl font-mono">Manik's Fortress</span>
-          </div>
-          <nav className="space-x-12">
-            <a
-              href="#about"
-              className={`text-xl ${currentTheme.hover} transition-colors`}
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              className={`text-xl ${currentTheme.hover} transition-colors`}
-            >
-              Projects
-            </a>
-            <a
-              href="#skills"
-              className={`text-xl ${currentTheme.hover} transition-colors`}
-            >
-              Skills
-            </a>
-            <a
-              href="#contact"
-              className={`text-xl ${currentTheme.hover} transition-colors`}
-            >
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+  <div className="container mx-auto flex justify-between items-center">
+    <div className="flex items-center space-x-3">
+      <TerminalIcon size={32} />
+      <span className="text-3xl font-mono">Manik's Fortress</span>
+    </div>
+    <nav className="space-x-16"> {/* Increased spacing between items */}
+      <a
+        href="#about"
+        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
+      >
+        About
+      </a>
+      <a
+        href="#projects"
+        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
+      >
+        Projects
+      </a>
+      <a
+        href="#skills"
+        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
+      >
+        Skills
+      </a>
+      <a
+        href="#contact"
+        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
+      >
+        Contact
+      </a>
+    </nav>
+  </div>
+</header>
+
 
       {/* Hero Section */}
       <section className="py-32 px-8">
@@ -148,7 +148,7 @@ const Portfolio = () => {
             >
               Manik Singh
             </h1>
-            <div className="font-mono text-3xl mb-8 flex items-center gap-2">
+            <div className="font-mono text-4xl mb-8 flex items-center gap-2">
               {text}
               {isTyping && <span className="animate-pulse">|</span>}
             </div>
@@ -158,7 +158,7 @@ const Portfolio = () => {
               Computer Science @ Thompson Rivers University
             </p>
             <p
-              className={`text-xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed`}
+              className={`text-2xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed`}
             >
               Passionate about securing digital landscapes and developing robust
               security solutions. Focused on cyber defense, network security,
@@ -192,7 +192,7 @@ const Portfolio = () => {
       {/* About Section */}
       <section id="about" className={`py-32 px-8 ${currentTheme.cardBg}`}>
         <div className="container mx-auto">
-          <h2 className="text-4xl font-mono mb-12 flex items-center">
+          <h2 className="text-5xl font-mono mb-12 flex items-center">
             <ShieldIcon size={40} className="mr-4" />
             ./About
           </h2>
@@ -202,7 +202,7 @@ const Portfolio = () => {
             } p-8 rounded-lg border ${currentTheme.border}`}
           >
             <p
-              className={`${currentTheme.secondaryText} text-xl leading-relaxed`}
+              className={`${currentTheme.secondaryText} text-2xl leading-relaxed`}
             >
               I'm a Computer Science student at Thompson Rivers University, with
               a love for cybersecurity. My passion lies in understanding and
@@ -218,7 +218,7 @@ const Portfolio = () => {
 
       <section id="projects" className="py-32 px-8">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-mono mb-12 flex items-center">
+          <h2 className="text-5xl font-mono mb-12 flex items-center">
             <CodeIcon size={40} className="mr-4" />
             ./Projects
           </h2>
@@ -246,7 +246,7 @@ const Portfolio = () => {
                 className={`${currentTheme.cardBg} p-8 rounded-lg border ${currentTheme.border}
                   hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
               >
-                <h3 className="text-2xl font-mono mb-4 flex items-center">
+                <h3 className="text-3xl font-mono mb-4 flex items-center">
                   {project.category === "security" ? (
                     <LockIcon size={24} className="mr-3" />
                   ) : (
@@ -254,14 +254,14 @@ const Portfolio = () => {
                   )}
                   {project.title}
                 </h3>
-                <p className={`${currentTheme.secondaryText} text-lg mb-6`}>
+                <p className={`${currentTheme.secondaryText} text-xl mb-6`}>
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-3 mb-6">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className={`text-lg ${currentTheme.tagBg} ${currentTheme.tagText} px-4 py-2 rounded`}
+                      className={`text-xl ${currentTheme.tagBg} ${currentTheme.tagText} px-4 py-2 rounded`}
                     >
                       {tag}
                     </span>
@@ -284,7 +284,7 @@ const Portfolio = () => {
       {/* Skills Section */}
       <section id="skills" className={`py-32 px-8 ${currentTheme.cardBg}`}>
         <div className="container mx-auto">
-          <h2 className="text-4xl font-mono mb-12 flex items-center">
+          <h2 className="text-5xl font-mono mb-12 flex items-center">
             <BookIcon size={40} className="mr-4" />
             ./Skills
           </h2>
@@ -294,8 +294,8 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-2xl font-mono mb-6">Security Skills</h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-lg`}>
+              <h3 className="text-3xl font-mono mb-6">Security Skills</h3>
+              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -327,8 +327,8 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-2xl font-mono mb-6">Technical Skills</h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-lg`}>
+              <h3 className="text-3xl font-mono mb-6">Technical Skills</h3>
+              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
