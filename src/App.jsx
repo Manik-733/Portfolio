@@ -102,42 +102,43 @@ const Portfolio = () => {
       >
         {isDark ? <SunIcon size={32} /> : <MoonIcon size={32} />}
       </button>
-      
-      <header className={`p-8 border-b ${currentTheme.border}`}>
-  <div className="container mx-auto flex justify-between items-center">
-    <div className="flex items-center space-x-3">
-      <TerminalIcon size={32} />
-      <span className="text-3xl font-mono">Manik's Fortress</span>
-    </div>
-    <nav className="space-x-16"> {/* Increased spacing between items */}
-      <a
-        href="#about"
-        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
-      >
-        About
-      </a>
-      <a
-        href="#projects"
-        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
-      >
-        Projects
-      </a>
-      <a
-        href="#skills"
-        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
-      >
-        Skills
-      </a>
-      <a
-        href="#contact"
-        className={`text-2xl ${currentTheme.hover} transition-colors p-3`}  // Increased font size and padding
-      >
-        Contact
-      </a>
-    </nav>
-  </div>
-</header>
 
+      <header className={`p-8 border-b ${currentTheme.border}`}>
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-3">
+            <TerminalIcon size={32} />
+            <span className="text-4xl font-mono">Manik's Fortress</span>
+          </div>
+          <nav className="space-x-16">
+            {" "}
+            {/* Increased spacing between items */}
+            <a
+              href="#about"
+              className={`text2xl ${currentTheme.hover} transition-colors p-3`} // Increased font size and padding
+            >
+              About
+            </a>
+            <a
+              href="#projects"
+              className={`text-2xl ${currentTheme.hover} transition-colors p-3`} // Increased font size and padding
+            >
+              Projects
+            </a>
+            <a
+              href="#skills"
+              className={`text-2xl ${currentTheme.hover} transition-colors p-3`} // Increased font size and padding
+            >
+              Skills
+            </a>
+            <a
+              href="#contact"
+              className={`text-2xl ${currentTheme.hover} transition-colors p-3`} // Increased font size and padding
+            >
+              Contact
+            </a>
+          </nav>
+        </div>
+      </header>
 
       {/* Hero Section */}
       <section className="py-32 px-8">
