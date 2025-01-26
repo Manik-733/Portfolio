@@ -114,7 +114,7 @@ const Portfolio = () => {
             {/* Increased spacing between items */}
             <a
               href="#about"
-              className={`text2xl ${currentTheme.hover} transition-colors p-3`} // Increased font size and padding
+              className={`text-2xl ${currentTheme.hover} transition-colors p-3`} // Increased font size and padding
             >
               About
             </a>
