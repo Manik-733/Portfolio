@@ -20,7 +20,7 @@ const Portfolio = () => {
   const [text, setText] = useState("");
   const fullText = "> Securing the Digital Frontier_";
   const [isTyping, setIsTyping] = useState(true);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
 
   const theme = {
