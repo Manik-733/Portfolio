@@ -133,12 +133,12 @@ const Portfolio = () => {
               {isTyping && <span className="animate-pulse">|</span>}
             </div>
             <p
-              className={`text-2xl ${currentTheme.secondaryText} max-w-3xl mb-8`}
+              className={`text-xl ${currentTheme.secondaryText} max-w-3xl mb-8`}
             >
               Computer Science @ Thompson Rivers University
             </p>
             <p
-              className={`text-2xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed`}
+              className={`text-xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed`}
             >
               Passionate about securing digital landscapes and developing robust
               security solutions. Focused on cyber defense, network security,
@@ -182,7 +182,7 @@ const Portfolio = () => {
             } p-8 rounded-lg border ${currentTheme.border}`}
           >
             <p
-              className={`${currentTheme.secondaryText} text-2xl leading-relaxed`}
+              className={`${currentTheme.secondaryText} text-xl leading-relaxed`}
             >
               I'm a Computer Science student at Thompson Rivers University, with
               a love for cybersecurity. My passion lies in understanding and
