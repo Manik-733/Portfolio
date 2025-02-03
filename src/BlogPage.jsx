@@ -1,0 +1,181 @@
+import React, { useState } from 'react';
+import {
+  BookOpenIcon,
+  ClockIcon,
+  TagIcon,
+  ChevronRightIcon,
+  SearchIcon,
+  SunIcon,
+  MoonIcon
+} from 'lucide-react';
+
+const BlogPage = ({ isDark, setIsDark }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeTag, setActiveTag] = useState('all');
+
+  const theme = {
+    dark: {
+      bg: "bg-slate-900",
+      text: "text-cyan-400",
+      secondaryText: "text-slate-300",
+      border: "border-cyan-500/20",
+      cardBg: "bg-slate-800/50",
+      hover: "hover:text-cyan-300",
+      tagBg: "bg-cyan-500/10",
+      tagText: "text-cyan-300",
+    },
+    light: {
+      bg: "bg-slate-50",
+      text: "text-blue-600",
+      secondaryText: "text-slate-700",
+      border: "border-blue-200",
+      cardBg: "bg-white",
+      hover: "hover:text-blue-500",
+      tagBg: "bg-blue-100",
+      tagText: "text-blue-700",
+    }
+  };
+
+  const currentTheme = isDark ? theme.dark : theme.light;
+
+  const blogPosts = [
+    {
+      id: 1,
+      title: "Understanding Network Security Fundamentals",
+      excerpt: "An in-depth look at the basic principles of network security and how to implement them effectively...",
+      date: "2024-02-01",
+      readTime: "8 min",
+      tags: ["security", "networking"],
+      image: "/api/placeholder/800/400"
+    },
+    {
+      id: 2,
+      title: "Encryption Methods in Modern Applications",
+      excerpt: "Exploring various encryption techniques and their applications in today's software landscape...",
+      date: "2024-01-25",
+      readTime: "12 min",
+      tags: ["security", "cryptography"],
+      image: "/api/placeholder/800/400"
+    },
+    {
+      id: 3,
+      title: "Best Practices for Secure Code Development",
+      excerpt: "Learn about the essential practices and principles for writing secure, robust code...",
+      date: "2024-01-18",
+      readTime: "10 min",
+      tags: ["development", "security"],
+      image: "/api/placeholder/800/400"
+    }
+  ];
+
+  const allTags = ['all', ...new Set(blogPosts.flatMap(post => post.tags))];
+
+  const filteredPosts = blogPosts
+    .filter(post => 
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter(post => 
+      activeTag === 'all' || post.tags.includes(activeTag)
+    );
+
+  return (
+    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text}`}>
+      {/* Add Theme Toggle Button */}
+      <button
+        onClick={() => setIsDark(!isDark)}
+        className={`fixed top-8 right-8 p-3 rounded-full ${currentTheme.cardBg} ${currentTheme.border} border`}
+      >
+        {isDark ? <SunIcon size={32} /> : <MoonIcon size={32} />}
+      </button>
+            {/* Blog Header */}
+      <div className="container mx-auto py-16 px-4">
+        <h1 className="text-5xl font-mono mb-6 flex items-center">
+          <BookOpenIcon size={40} className="mr-4" />
+          ./Blog
+        </h1>
+        <p className={`text-xl ${currentTheme.secondaryText} max-w-3xl`}>
+          Exploring cybersecurity, network defense, and secure development practices
+        </p>
+      </div>
+
+      {/* Search and Filter Section */}
+      <div className="container mx-auto px-4 mb-12">
+        <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className={`relative flex-1 max-w-md ${currentTheme.cardBg} rounded-lg`}>
+            <SearchIcon className="absolute left-4 top-3.5 h-5 w-5" />
+            <input
+              type="text"
+              placeholder="Search posts..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className={`w-full pl-12 pr-4 py-3 bg-transparent border ${currentTheme.border} rounded-lg focus:outline-none focus:ring-2 ${currentTheme.text}`}
+            />
+          </div>
+          <div className="flex gap-4 flex-wrap">
+            {allTags.map(tag => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(tag)}
+                className={`px-4 py-2 rounded-lg transition-colors ${
+                  activeTag === tag 
+                    ? `${currentTheme.tagBg} ${currentTheme.tagText}`
+                    : `${currentTheme.cardBg} ${currentTheme.border} border`
+                }`}
+              >
+                {tag.charAt(0).toUpperCase() + tag.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Blog Posts Grid */}
+      <div className="container mx-auto px-4 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredPosts.map(post => (
+            <article
+              key={post.id}
+              className={`${currentTheme.cardBg} rounded-lg border ${currentTheme.border} overflow-hidden
+                hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
+            >
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex gap-2 mb-4">
+                  {post.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className={`${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded-full text-sm`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h2 className="text-2xl font-mono mb-3">{post.title}</h2>
+                <p className={`${currentTheme.secondaryText} mb-4`}>
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className={`${currentTheme.secondaryText} text-sm flex items-center`}>
+                    <ClockIcon size={16} className="mr-2" />
+                    {post.readTime}
+                  </span>
+                  <button className={`${currentTheme.hover} flex items-center`}>
+                    Read More
+                    <ChevronRightIcon size={16} className="ml-2" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BlogPage;
