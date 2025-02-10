@@ -9,6 +9,7 @@ export const post = {
   tags: ["security", "networking"],
   image: "/api/placeholder/800/400",
   content: `
+_by [Manik Singh](/)_  
 
 Entering the world of cybersecurity always felt like stepping into a vast, digital wilderness. This sense got magnified (by 10x atleast) when I embarked on one of my most ambitious projects yet—"Manik's Encryptor." This wasn't just a technical project; it was a personal challenge, a true test of my resolve and passion for cybersecurity. Hosted on Amazon Web Services (AWS), this journey from concept to launch taught me the essence of patience and the power of community support in the face of challenges.
 
