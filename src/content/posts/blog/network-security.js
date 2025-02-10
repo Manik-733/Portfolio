@@ -19,7 +19,7 @@ The idea of Manik's Encryptor arose from a simple yet a very ambitious desire to
 
 ## Choosing Amazon Web Services for Deployment
 
-I have always used Github or Vercel for my deployments (10/10 experience), but this time the project was different. As I was finishing my Python script for backend, I realised my old budiies won't be able to help me anymore. After a lot of research (5 mins) and advise from my friend Deepasrh, I decided to use AWS. However, as someone new to its environment, every step felt like deciphering a new language. Setting up the EC2 instances, managing IAM roles, and understanding VPC configurations—each task was no less than travelling a new road in the middle of the night without Apple Maps. The complexity of AWS was overwhelming at times, and I questioned my ability to handle such a sophisticated tool.
+I have always used Github or Vercel for my deployments (10/10 experience), but this time the project was different. As I was finishing my Python script for backend, I realised my old buddies won't be able to help me anymore. After a lot of research (5 mins) and advise from my friend Deeparsh, I decided to use AWS. However, as someone new to its environment, every step felt like deciphering a new language. Setting up the EC2 instances, managing IAM roles, and understanding VPC configurations—each task was no less than travelling a new road in the middle of the night without Apple Maps. The complexity of AWS was overwhelming at times, and I questioned my ability to handle such a sophisticated tool.
 
 ## Challenges and Triumphs
 
