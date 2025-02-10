@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getAllPosts, getPostBySlug } from './content/posts';
 import {
   BookOpenIcon,
   ClockIcon,
@@ -41,31 +43,17 @@ const BlogPage = ({ isDark, setIsDark }) => {
   const blogPosts = [
     {
       id: 1,
-      title: "Understanding Network Security Fundamentals",
-      excerpt: "An in-depth look at the basic principles of network security and how to implement them effectively...",
+      title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
+      excerpt: "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth...",
       date: "2024-02-01",
       readTime: "8 min",
       tags: ["security", "networking"],
-      image: "/api/placeholder/800/400"
+      image: "/aws.jpg",
+      slug: "decrypting-diaries-1"
     },
-    {
-      id: 2,
-      title: "Encryption Methods in Modern Applications",
-      excerpt: "Exploring various encryption techniques and their applications in today's software landscape...",
-      date: "2024-01-25",
-      readTime: "12 min",
-      tags: ["security", "cryptography"],
-      image: "/api/placeholder/800/400"
-    },
-    {
-      id: 3,
-      title: "Best Practices for Secure Code Development",
-      excerpt: "Learn about the essential practices and principles for writing secure, robust code...",
-      date: "2024-01-18",
-      readTime: "10 min",
-      tags: ["development", "security"],
-      image: "/api/placeholder/800/400"
-    }
+
+    //add blogpost here, then go add blog.js and then go to index.js to make changes
+
   ];
 
   const allTags = ['all', ...new Set(blogPosts.flatMap(post => post.tags))];
@@ -81,14 +69,13 @@ const BlogPage = ({ isDark, setIsDark }) => {
 
   return (
     <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text}`}>
-      {/* Add Theme Toggle Button */}
       <button
         onClick={() => setIsDark(!isDark)}
         className={`fixed top-8 right-8 p-3 rounded-full ${currentTheme.cardBg} ${currentTheme.border} border`}
       >
         {isDark ? <SunIcon size={32} /> : <MoonIcon size={32} />}
       </button>
-            {/* Blog Header */}
+
       <div className="container mx-auto py-16 px-4">
         <h1 className="text-5xl font-mono mb-6 flex items-center">
           <BookOpenIcon size={40} className="mr-4" />
@@ -99,7 +86,6 @@ const BlogPage = ({ isDark, setIsDark }) => {
         </p>
       </div>
 
-      {/* Search and Filter Section */}
       <div className="container mx-auto px-4 mb-12">
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
           <div className={`relative flex-1 max-w-md ${currentTheme.cardBg} rounded-lg`}>
@@ -130,47 +116,49 @@ const BlogPage = ({ isDark, setIsDark }) => {
         </div>
       </div>
 
-      {/* Blog Posts Grid */}
       <div className="container mx-auto px-4 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map(post => (
-            <article
+            <Link
               key={post.id}
-              className={`${currentTheme.cardBg} rounded-lg border ${currentTheme.border} overflow-hidden
+              to={`/blog/${post.slug}`}
+              className={`block ${currentTheme.cardBg} rounded-lg border ${currentTheme.border} overflow-hidden
                 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
             >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <div className="flex gap-2 mb-4">
-                  {post.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className={`${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded-full text-sm`}
-                    >
-                      {tag}
+              <article>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <div className="flex gap-2 mb-4">
+                    {post.tags.map(tag => (
+                      <span
+                        key={tag}
+                        className={`${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded-full text-sm`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h2 className="text-2xl font-mono mb-3">{post.title}</h2>
+                  <p className={`${currentTheme.secondaryText} mb-4`}>
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className={`${currentTheme.secondaryText} text-sm flex items-center`}>
+                      <ClockIcon size={16} className="mr-2" />
+                      {post.readTime}
                     </span>
-                  ))}
+                    <span className={`${currentTheme.hover} flex items-center`}>
+                      Read More
+                      <ChevronRightIcon size={16} className="ml-2" />
+                    </span>
+                  </div>
                 </div>
-                <h2 className="text-2xl font-mono mb-3">{post.title}</h2>
-                <p className={`${currentTheme.secondaryText} mb-4`}>
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className={`${currentTheme.secondaryText} text-sm flex items-center`}>
-                    <ClockIcon size={16} className="mr-2" />
-                    {post.readTime}
-                  </span>
-                  <button className={`${currentTheme.hover} flex items-center`}>
-                    Read More
-                    <ChevronRightIcon size={16} className="ml-2" />
-                  </button>
-                </div>
-              </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       </div>

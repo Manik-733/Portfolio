@@ -1,5 +1,5 @@
 import "./index.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import {
   TerminalIcon,
@@ -14,6 +14,7 @@ import {
   LockIcon,
   NetworkIcon,
   ExternalLinkIcon,
+  ArrowRightIcon,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -50,6 +51,34 @@ const Portfolio = () => {
 
   const currentTheme = isDark ? theme.dark : theme.light;
 
+  const BlogHighlight = () => {
+    const latestPost = {
+      title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
+      date: "Feb 9, 2024",
+    };
+
+    return (
+      <div
+        className={`mt-8 p-4 rounded-lg border ${currentTheme.border} inline-block`}
+      >
+        <div className="flex items-center gap-4">
+          <div>
+            <span className={`text-sm ${currentTheme.secondaryText}`}>
+              Latest Blog: {latestPost.date}
+            </span>
+            <h3 className="font-medium">{latestPost.title}</h3>
+          </div>
+          <Link
+            to="/blog/decrypting-diaries-1"
+            className={`flex items-center gap-1 ${currentTheme.hover}`}
+          >
+            Read <ArrowRightIcon size={16} />
+          </Link>
+        </div>
+      </div>
+    );
+  };
+
   useEffect(() => {
     if (text.length < fullText.length) {
       const timeout = setTimeout(() => {
@@ -67,7 +96,7 @@ const Portfolio = () => {
       description:
         "A Flask-based web application providing secure AES encryption and decryption services for files. Features automatic key generation and a user-friendly interface for secure data management.",
       tags: ["Python", "Flask", "Cryptography", "Cloud"],
-      link: "https://github.com/Manik-733/Manik-s-Encryptor ",
+      link: "https://maniks-encryptor.com/ ",
       category: "security",
     },
     {
@@ -110,12 +139,37 @@ const Portfolio = () => {
             <span className="text-3xl font-mono">Manik's Fortress</span>
           </div>
           <nav className="space-x-16">
-          <Link to="/blog" className={`text-xl ${currentTheme.hover} transition-colors p-3`}>Blog</Link>
-  <a href="#about" className={`text-xl ${currentTheme.hover} transition-colors p-3`}>About</a>
-  <a href="#projects" className={`text-xl ${currentTheme.hover} transition-colors p-3`}>Projects</a>
-  <a href="#skills" className={`text-xl ${currentTheme.hover} transition-colors p-3`}>Skills</a>
-  <a href="#contact" className={`text-xl ${currentTheme.hover} transition-colors p-3`}>Contact</a>
-</nav>
+            <Link
+              to="/blog"
+              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
+            >
+              Blog
+            </Link>
+            <a
+              href="#about"
+              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
+            >
+              About
+            </a>
+            <a
+              href="#projects"
+              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
+            >
+              Projects
+            </a>
+            <a
+              href="#skills"
+              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
+            >
+              Skills
+            </a>
+            <a
+              href="#contact"
+              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
+            >
+              Contact
+            </a>
+          </nav>
         </div>
       </header>
 
@@ -144,6 +198,8 @@ const Portfolio = () => {
               security solutions. Focused on cyber defense, network security,
               and secure software development.
             </p>
+
+            <BlogHighlight />
           </div>
 
           <div className="flex-1 flex justify-center">
@@ -253,7 +309,7 @@ const Portfolio = () => {
                   rel="noopener noreferrer"
                   className={`inline-flex items-center text-lg ${currentTheme.hover} transition-colors`}
                 >
-                  View Project <ExternalLinkIcon size={20} className="ml-2" />
+                  Visit <ExternalLinkIcon size={20} className="ml-2" />
                 </a>
               </div>
             ))}
