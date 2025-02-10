@@ -54,7 +54,7 @@ const Portfolio = () => {
   const BlogHighlight = () => {
     const latestPost = {
       title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
-      date: "Feb 9, 2024",
+      date: "Feb 9, 2025",
     };
 
     return (

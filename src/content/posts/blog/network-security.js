@@ -1,13 +1,14 @@
 export const post = {
-    id: 1,
-    slug: 'decrypting-diaries-1',
-    title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
-    excerpt: "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth...",
-    date: "2024-02-01",
-    readTime: "8 min",
-    tags: ["security", "networking"],
-    image: "/api/placeholder/800/400",
-    content: `
+  id: 1,
+  slug: "decrypting-diaries-1",
+  title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
+  excerpt:
+    "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth...",
+  date: "2025-02-10",
+  readTime: "8 min",
+  tags: ["security", "networking"],
+  image: "/api/placeholder/800/400",
+  content: `
 
 Entering the world of cybersecurity always felt like stepping into a vast, digital wilderness. This sense got magnified (by 10x atleast) when I embarked on one of my most ambitious projects yet—"Manik's Encryptor." This wasn't just a technical project; it was a personal challenge, a true test of my resolve and passion for cybersecurity. Hosted on Amazon Web Services (AWS), this journey from concept to launch taught me the essence of patience and the power of community support in the face of challenges.
 
@@ -35,5 +36,5 @@ This project taught me more than just technical skills; it was a profound journe
 
 
 Visit Manik's Encryptor to see how persistence and passion can translate into a secure digital solution. For those who’ve faced similar journeys or are curious about this field, let’s connect and share our stories. Together, we can continue to make the digital world a safer place.
-    `
+    `,
 };
