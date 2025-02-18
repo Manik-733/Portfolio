@@ -44,15 +44,25 @@ const BlogPage = ({ isDark, setIsDark }) => {
     {
       id: 1,
       title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
-      excerpt: "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth...",
-      date: "2024-02-01",
+      excerpt: "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth.",
+      date: "2025-02-01",
       readTime: "8 min",
-      tags: ["security", "networking"],
+      tags: ["security", "networking","case study"],
       image: "/aws.jpg",
       slug: "decrypting-diaries-1"
     },
 
-    //add blogpost here, then go add blog.js and then go to index.js to make changes
+    //add blogpost here, then go add yourblog.js and then go to index.js to make changes
+    {
+      id: 2,
+      title: "Decrypting Diaries 2: The Capital One Breach",
+      excerpt: "An in-depth analysis of the Capital One data breach of 2019, its impact on cybersecurity, and the important lessons we can learn.",
+      date: "2025-02-17",
+      readTime: "10 min",
+      tags: ["security", "breach"],
+      image: "/co.jpg",
+      slug: "decrypting-diaries-2"
+    },
 
   ];
 

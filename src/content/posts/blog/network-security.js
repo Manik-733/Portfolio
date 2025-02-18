@@ -37,5 +37,8 @@ This project taught me more than just technical skills; it was a profound journe
 
 https://maniks-encryptor.com/
 \nVisit Manik's Encryptor to see how persistence and passion can translate into a secure digital solution. For those who’ve faced similar journeys or are curious about this field, let’s connect and share our stories. Together, we can continue to make the digital world a safer place.
+
+Happy Decrypting!
+
     `,
 };
