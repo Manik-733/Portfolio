@@ -40,6 +40,8 @@ const BlogPage = ({ isDark, setIsDark }) => {
 
   const currentTheme = isDark ? theme.dark : theme.light;
 
+    //step 1. after creating blogpage js, add blogpost here, go to index.js to make changes
+
   const blogPosts = [
     {
       id: 1,
@@ -48,11 +50,10 @@ const BlogPage = ({ isDark, setIsDark }) => {
       date: "2025-02-01",
       readTime: "8 min",
       tags: ["security", "networking","case study"],
-      image: "/aws.jpg",
+      image: "/dd1.jpg",
       slug: "decrypting-diaries-1"
     },
 
-    //add blogpost here, then go add yourblog.js and then go to index.js to make changes
     {
       id: 2,
       title: "Decrypting Diaries 2: The Capital One Breach",
@@ -60,8 +61,19 @@ const BlogPage = ({ isDark, setIsDark }) => {
       date: "2025-02-17",
       readTime: "10 min",
       tags: ["security", "breach"],
-      image: "/co.jpg",
+      image: "/dd2.jpg",
       slug: "decrypting-diaries-2"
+    },
+
+    {
+      id: 3,
+      title: "Decrypting Diaries 3: First Blood – My First Real Pentest",
+      excerpt: "A step-by-step walkthrough of my first penetration test on Metasploitable 2 using Kali Linux — from reconnaissance to root access and persistent control.",
+      date: "2025-04-21",
+      readTime: "8 min",
+      tags: ["security", "breach"],
+      image: "/dd3.jpg",
+      slug: "decrypting-diaries-3"
     },
 
   ];

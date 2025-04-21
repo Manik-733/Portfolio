@@ -1,12 +1,14 @@
 import { post as networkSecurity } from "./blog/network-security";
 import { post as capitalOne } from "./blog/capital-one";
+import { post as firstPentest } from "./blog/first-pentest";
 
-//add import statements here
+// step 2 add import statements here
 
 const posts = [
-  //add the post here
+  // step 3 add the post here
   networkSecurity,
   capitalOne,
+  firstPentest,
 ];
 
 export const getAllPosts = () => posts;
