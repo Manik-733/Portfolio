@@ -40,7 +40,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
 
   const currentTheme = isDark ? theme.dark : theme.light;
 
-    //step 1. after creating blogpage js, add blogpost here, go to index.js to make changes
+    //step 1. after creating blogpage js, add blogpost here, then go to index.js to make changes
 
   const blogPosts = [
     {
@@ -74,6 +74,17 @@ const BlogPage = ({ isDark, setIsDark }) => {
       tags: ["security", "breach"],
       image: "/dd3.jpg",
       slug: "decrypting-diaries-3"
+    },
+
+    {
+      id: 4,
+      title: "Decrypting Diaries 4: Stuxnet - The Worm That Turned Software Into Sabotage",
+      excerpt: "A deep dive into Stuxnet, the world’s first cyber weapon that used code to cause real-world physical destruction.",
+      date: "2025-10-13",
+      readTime: "7 min",
+      tags: ["security", "breach"],
+      image: "/api/placeholder/800/400",
+      slug: "decrypting-diaries-4"
     },
 
   ];
