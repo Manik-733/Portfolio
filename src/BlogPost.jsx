@@ -3,12 +3,12 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useParams, Link } from 'react-router-dom';
 import { getAllPosts, getPostBySlug } from './content/posts';
-import { ArrowLeftIcon, BookOpenIcon, HomeIcon } from 'lucide-react';
+import { ArrowLeftIcon, BookOpenIcon, HomeIcon, SunIcon, MoonIcon } from 'lucide-react';
 
 
 
 
-const BlogPost = ({ isDark }) => {
+const BlogPost = ({ isDark, setIsDark }) => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
 
@@ -48,7 +48,15 @@ const BlogPost = ({ isDark }) => {
   );
 
   return (
-    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text}`}>
+    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} pb-8`}>
+      {/* Theme Toggle */}
+      <button
+        onClick={() => setIsDark(!isDark)}
+        className={`fixed bottom-6 right-6 z-50 p-3 rounded-full ${currentTheme.cardBg} ${currentTheme.border} border shadow-lg`}
+      >
+        {isDark ? <SunIcon size={24} /> : <MoonIcon size={24} />}
+      </button>
+
       {/* Header with Navigation */}
       <header className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,27 +85,15 @@ const BlogPost = ({ isDark }) => {
         </div>
       </header>
 
-      <div className="container mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <article className={`prose ${currentTheme.prose} lg:prose-xl max-w-4xl mx-auto`}>
-          <div className="mb-8 sm:mb-12">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">{post.title}</h1>
-            <div className={`flex gap-4 text-base sm:text-lg ${currentTheme.secondaryText}`}>
+      <div className="container mx-auto py-10 sm:py-12 px-6 sm:px-8 lg:px-12">
+        <article className={`prose ${currentTheme.prose} prose-sm sm:prose-base max-w-4xl mx-auto`}>
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">{post.title}</h1>
+            <div className={`flex gap-3 text-sm sm:text-base ${currentTheme.secondaryText}`}>
               <span>{new Date(post.date).toLocaleDateString()}</span>
               <span>·</span>
               <span>{post.readTime}</span>
             </div>
-            {post.tags && (
-              <div className="flex gap-2 mt-4 flex-wrap">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`${currentTheme.cardBg} ${currentTheme.text} px-3 py-1 rounded-full text-sm border ${currentTheme.border}`}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
           </div>
           <ReactMarkdown 
             remarkPlugins={[remarkGfm]}

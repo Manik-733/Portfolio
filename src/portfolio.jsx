@@ -19,11 +19,10 @@ import {
   XIcon,
 } from "lucide-react";
 
-const Portfolio = () => {
+const Portfolio = ({ isDark, setIsDark }) => {
   const [text, setText] = useState("");
   const fullText = "> Securing the Digital Frontier_";
   const [isTyping, setIsTyping] = useState(true);
-  const [isDark, setIsDark] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const [expOpen, setExpOpen] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
