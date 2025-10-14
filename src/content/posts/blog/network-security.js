@@ -35,8 +35,8 @@ This project taught me more than just technical skills; it was a profound journe
 \n**Lean on the Community:** I cannot overstate the importance of the AWS and cybersecurity communities. Their advice and support were crucial in overcoming the technical challenges.
 \n**Persistence is Key:** The path to success is paved with failures. Each misstep taught me resilience and the importance of pushing forward, no matter how daunting the task. 
 
-https://maniks-encryptor.com/
-\nVisit Manik's Encryptor to see how persistence and passion can translate into a secure digital solution. For those who’ve faced similar journeys or are curious about this field, let’s connect and share our stories. Together, we can continue to make the digital world a safer place.
+https://github.com/Manik-733/Manik-s-Encryptor
+\nVisit Manik's Encryptor on GitHub to see how persistence and passion can translate into a secure digital solution. For those who've faced similar journeys or are curious about this field, let's connect and share our stories. Together, we can continue to make the digital world a safer place.
 
 Happy Decrypting!
 

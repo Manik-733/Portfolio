@@ -20,7 +20,7 @@ const App = () => {
           path="/blog"
           element={<BlogPage isDark={isDark} setIsDark={setIsDark} />}
         />
-        <Route path="/blog/:slug" element={<BlogPost isDark={isDark} />} />
+        <Route path="/blog/:slug" element={<BlogPost isDark={isDark} setIsDark={setIsDark} />} />
       </Routes>
     </Router>
   );

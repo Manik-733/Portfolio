@@ -105,7 +105,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
     .filter((post) => activeTag === "all" || post.tags.includes(activeTag));
 
   return (
-    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text}`}>
+    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} pb-8`}>
       {/* Theme Toggle */}
       <button
         onClick={() => setIsDark(!isDark)}
@@ -181,7 +181,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 mb-16 max-w-7xl">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 pb-16 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {filteredPosts.map((post) => (
             <Link
