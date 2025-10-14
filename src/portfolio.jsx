@@ -314,14 +314,12 @@ const Portfolio = () => {
                 >
                   <h3 className="text-3xl font-mono mb-2 flex items-center gap-3">
                     {companyLogos[exp.company] && (
-                      <img
-                        src={companyLogos[exp.company]}
-                        alt={`${exp.company} logo`}
-                        className={`h-11 w-11 object-contain opacity-90 ${
-                          isDark ? "invert" : ""
-                        }`}
-                        title={exp.company}
-                      />
+        <img
+  src={companyLogos[exp.company]}
+  alt={`${exp.company} logo`}
+  className={`h-11 w-11 object-contain opacity-90 ${isDark ? "invert" : ""}`}
+  title={exp.company}
+/>
                     )}
                     {exp.company}
                   </h3>
@@ -371,6 +369,83 @@ const Portfolio = () => {
         </div>
       </section>
 
+{/* Skills Section */}
+<section id="skills" className={`py-32 px-8 ${currentTheme.cardBg}`}>
+  <div className="container mx-auto">
+    <h2 className="text-5xl font-mono mb-12 flex items-center">
+      <BookIcon size={40} className="mr-4" />
+      ./Skills
+    </h2>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* Cybersecurity Domains */}
+      <div className={`${isDark ? "bg-slate-900" : "bg-white"} p-8 rounded-lg border ${currentTheme.border}`}>
+        <h3 className="text-3xl font-mono mb-6">Cybersecurity Domains</h3>
+        <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Security Analysis</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Incident Response</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Network Security</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Penetration Testing</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Digital Forensics</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Encryption</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Security Auditing</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Active Directory Security</li>
+        </ul>
+      </div>
+
+      {/* Security Tools & Platforms */}
+      <div className={`${isDark ? "bg-slate-900" : "bg-white"} p-8 rounded-lg border ${currentTheme.border}`}>
+        <h3 className="text-3xl font-mono mb-6">Security Tools & Platforms</h3>
+        <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>SentinelOne</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Wireshark</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Okta</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>BeyondTrust</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>HoxHunt</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Jira Service Management</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Linux</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Windows Server / PowerShell</li>
+        </ul>
+      </div>
+
+{/* Cloud & Infrastructure */}
+<div className={`${isDark ? "bg-slate-900" : "bg-white"} p-8 rounded-lg border ${currentTheme.border}`}>
+  <h3 className="text-3xl font-mono mb-6">Cloud & Infrastructure</h3>
+  <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>AWS</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Azure</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Google Workspace</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Intune</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Jamf</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Automox</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Terraform</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>GitHub</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>System Hardening</li>
+    <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Identity Management</li>
+  </ul>
+</div>
+
+
+      {/* Programming & Web Development */}
+      <div className={`${isDark ? "bg-slate-900" : "bg-white"} p-8 rounded-lg border ${currentTheme.border}`}>
+        <h3 className="text-3xl font-mono mb-6">Programming & Web Development</h3>
+        <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Python</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>C</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>C++</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>Java</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>HTML</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>CSS</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>JavaScript</li>
+          <li className="flex items-center"><span className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}></span>React / Next.js</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* Projects Section */}
       <section id="projects" className="py-32 px-8">
         <div className="container mx-auto">
           <h2 className="text-5xl font-mono mb-12 flex items-center">
@@ -436,83 +511,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className={`py-32 px-8 ${currentTheme.cardBg}`}>
-        <div className="container mx-auto">
-          <h2 className="text-5xl font-mono mb-12 flex items-center">
-            <BookIcon size={40} className="mr-4" />
-            ./Skills
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div
-              className={`${
-                isDark ? "bg-slate-900" : "bg-white"
-              } p-8 rounded-lg border ${currentTheme.border}`}
-            >
-              <h3 className="text-3xl font-mono mb-6">Security Skills</h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Network Security & Analysis
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Encryption
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Security Auditing
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Incident Response
-                </li>
-              </ul>
-            </div>
-            <div
-              className={`${
-                isDark ? "bg-slate-900" : "bg-white"
-              } p-8 rounded-lg border ${currentTheme.border}`}
-            >
-              <h3 className="text-3xl font-mono mb-6">Technical Skills</h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Python, Java, C++
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Linux Systems
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Web Development
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Database Management
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-32 px-8">
