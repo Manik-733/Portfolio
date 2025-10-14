@@ -52,7 +52,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
         "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth.",
       date: "2025-02-01",
       readTime: "8 min",
-      tags: ["security", "networking"],
+      tags: ["Cloud", "Project"],
       image: "/dd1.jpg",
       slug: "decrypting-diaries-1",
     },
@@ -64,7 +64,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
         "An in-depth analysis of the Capital One data breach of 2019, its impact on cybersecurity, and the important lessons we can learn.",
       date: "2025-02-17",
       readTime: "10 min",
-      tags: ["security", "breach", "case study"],
+      tags: ["Breach", "Case Study"],
       image: "/dd2.jpg",
       slug: "decrypting-diaries-2",
     },
@@ -76,7 +76,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
         "A step-by-step walkthrough of my first penetration test on Metasploitable 2 using Kali Linux — from reconnaissance to root access and persistent control.",
       date: "2025-04-21",
       readTime: "8 min",
-      tags: ["security", "breach"],
+      tags: ["Breach", "Project"],
       image: "/dd3.jpg",
       slug: "decrypting-diaries-3",
     },
@@ -88,7 +88,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
         "A deep dive into Stuxnet, the world’s first cyber weapon that used code to cause real-world physical destruction.",
       date: "2025-10-13",
       readTime: "7 min",
-      tags: ["security", "breach", "case study"],
+      tags: ["Breach", "Case Study"],
       image: "dd4.jpg",
       slug: "decrypting-diaries-4",
     },
@@ -105,7 +105,9 @@ const BlogPage = ({ isDark, setIsDark }) => {
     .filter((post) => activeTag === "all" || post.tags.includes(activeTag));
 
   return (
-    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} pb-8`}>
+    <div
+      className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} pb-8`}
+    >
       {/* Theme Toggle */}
       <button
         onClick={() => setIsDark(!isDark)}
@@ -115,7 +117,9 @@ const BlogPage = ({ isDark, setIsDark }) => {
       </button>
 
       {/* Header with Navigation */}
-      <header className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}>
+      <header
+        className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <Link
@@ -143,7 +147,9 @@ const BlogPage = ({ isDark, setIsDark }) => {
           <BookOpenIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
           Decrypting Diaries
         </h1>
-        <p className={`text-sm sm:text-base lg:text-lg ${currentTheme.secondaryText} max-w-3xl`}>
+        <p
+          className={`text-sm sm:text-base lg:text-lg ${currentTheme.secondaryText} max-w-3xl`}
+        >
           Exploring cybersecurity, network defense, and secure development
           practices
         </p>
@@ -207,8 +213,12 @@ const BlogPage = ({ isDark, setIsDark }) => {
                       </span>
                     ))}
                   </div>
-                  <h2 className="text-lg sm:text-xl font-mono mb-2 leading-snug">{post.title}</h2>
-                  <p className={`${currentTheme.secondaryText} mb-3 text-sm leading-relaxed`}>
+                  <h2 className="text-lg sm:text-xl font-mono mb-2 leading-snug">
+                    {post.title}
+                  </h2>
+                  <p
+                    className={`${currentTheme.secondaryText} mb-3 text-sm leading-relaxed`}
+                  >
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
@@ -218,7 +228,9 @@ const BlogPage = ({ isDark, setIsDark }) => {
                       <ClockIcon size={14} className="mr-1" />
                       {post.readTime}
                     </span>
-                    <span className={`${currentTheme.hover} flex items-center text-sm`}>
+                    <span
+                      className={`${currentTheme.hover} flex items-center text-sm`}
+                    >
                       Read More
                       <ChevronRightIcon size={14} className="ml-1" />
                     </span>
