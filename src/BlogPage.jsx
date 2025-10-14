@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getAllPosts, getPostBySlug } from './content/posts';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { getAllPosts, getPostBySlug } from "./content/posts";
 import {
   BookOpenIcon,
   ClockIcon,
@@ -8,12 +8,12 @@ import {
   ChevronRightIcon,
   SearchIcon,
   SunIcon,
-  MoonIcon
-} from 'lucide-react';
+  MoonIcon,
+} from "lucide-react";
 
 const BlogPage = ({ isDark, setIsDark }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [activeTag, setActiveTag] = useState('all');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeTag, setActiveTag] = useState("all");
 
   const theme = {
     dark: {
@@ -35,70 +35,72 @@ const BlogPage = ({ isDark, setIsDark }) => {
       hover: "hover:text-blue-500",
       tagBg: "bg-blue-100",
       tagText: "text-blue-700",
-    }
+    },
   };
 
   const currentTheme = isDark ? theme.dark : theme.light;
 
-    //step 1. after creating blogpage js, add blogpost here, then go to index.js to make changes
+  //step 1. after creating blogpage js, add blogpost here, then go to index.js to make changes
 
   const blogPosts = [
     {
       id: 1,
       title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
-      excerpt: "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth.",
+      excerpt:
+        "Discover my journey with Manik's Encryptor: from concept to AWS deployment, facing technical challenges and personal growth.",
       date: "2025-02-01",
       readTime: "8 min",
-      tags: ["security", "networking","case study"],
+      tags: ["security", "networking"],
       image: "/dd1.jpg",
-      slug: "decrypting-diaries-1"
+      slug: "decrypting-diaries-1",
     },
 
     {
       id: 2,
       title: "Decrypting Diaries 2: The Capital One Breach",
-      excerpt: "An in-depth analysis of the Capital One data breach of 2019, its impact on cybersecurity, and the important lessons we can learn.",
+      excerpt:
+        "An in-depth analysis of the Capital One data breach of 2019, its impact on cybersecurity, and the important lessons we can learn.",
       date: "2025-02-17",
       readTime: "10 min",
-      tags: ["security", "breach"],
+      tags: ["security", "breach", "case study"],
       image: "/dd2.jpg",
-      slug: "decrypting-diaries-2"
+      slug: "decrypting-diaries-2",
     },
 
     {
       id: 3,
       title: "Decrypting Diaries 3: First Blood – My First Real Pentest",
-      excerpt: "A step-by-step walkthrough of my first penetration test on Metasploitable 2 using Kali Linux — from reconnaissance to root access and persistent control.",
+      excerpt:
+        "A step-by-step walkthrough of my first penetration test on Metasploitable 2 using Kali Linux — from reconnaissance to root access and persistent control.",
       date: "2025-04-21",
       readTime: "8 min",
       tags: ["security", "breach"],
       image: "/dd3.jpg",
-      slug: "decrypting-diaries-3"
+      slug: "decrypting-diaries-3",
     },
 
     {
       id: 4,
-      title: "Decrypting Diaries 4: Stuxnet - The Worm That Turned Software Into Sabotage",
-      excerpt: "A deep dive into Stuxnet, the world’s first cyber weapon that used code to cause real-world physical destruction.",
+      title: "Decrypting Diaries 4: Stuxnet - When Code Went Nuclear",
+      excerpt:
+        "A deep dive into Stuxnet, the world’s first cyber weapon that used code to cause real-world physical destruction.",
       date: "2025-10-13",
       readTime: "7 min",
-      tags: ["security", "breach"],
-      image: "/api/placeholder/800/400",
-      slug: "decrypting-diaries-4"
+      tags: ["security", "breach", "case study"],
+      image: "dd4.jpg",
+      slug: "decrypting-diaries-4",
     },
-
   ];
 
-  const allTags = ['all', ...new Set(blogPosts.flatMap(post => post.tags))];
+  const allTags = ["all", ...new Set(blogPosts.flatMap((post) => post.tags))];
 
   const filteredPosts = blogPosts
-    .filter(post => 
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    .filter(
+      (post) =>
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    .filter(post => 
-      activeTag === 'all' || post.tags.includes(activeTag)
-    );
+    .filter((post) => activeTag === "all" || post.tags.includes(activeTag));
 
   return (
     <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text}`}>
@@ -115,13 +117,16 @@ const BlogPage = ({ isDark, setIsDark }) => {
           ./Blog
         </h1>
         <p className={`text-xl ${currentTheme.secondaryText} max-w-3xl`}>
-          Exploring cybersecurity, network defense, and secure development practices
+          Exploring cybersecurity, network defense, and secure development
+          practices
         </p>
       </div>
 
       <div className="container mx-auto px-4 mb-12">
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
-          <div className={`relative flex-1 max-w-md ${currentTheme.cardBg} rounded-lg`}>
+          <div
+            className={`relative flex-1 max-w-md ${currentTheme.cardBg} rounded-lg`}
+          >
             <SearchIcon className="absolute left-4 top-3.5 h-5 w-5" />
             <input
               type="text"
@@ -132,12 +137,12 @@ const BlogPage = ({ isDark, setIsDark }) => {
             />
           </div>
           <div className="flex gap-4 flex-wrap">
-            {allTags.map(tag => (
+            {allTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setActiveTag(tag)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeTag === tag 
+                  activeTag === tag
                     ? `${currentTheme.tagBg} ${currentTheme.tagText}`
                     : `${currentTheme.cardBg} ${currentTheme.border} border`
                 }`}
@@ -151,7 +156,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
 
       <div className="container mx-auto px-4 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPosts.map(post => (
+          {filteredPosts.map((post) => (
             <Link
               key={post.id}
               to={`/blog/${post.slug}`}
@@ -166,7 +171,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
                 />
                 <div className="p-6">
                   <div className="flex gap-2 mb-4">
-                    {post.tags.map(tag => (
+                    {post.tags.map((tag) => (
                       <span
                         key={tag}
                         className={`${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded-full text-sm`}
@@ -180,7 +185,9 @@ const BlogPage = ({ isDark, setIsDark }) => {
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className={`${currentTheme.secondaryText} text-sm flex items-center`}>
+                    <span
+                      className={`${currentTheme.secondaryText} text-sm flex items-center`}
+                    >
                       <ClockIcon size={16} className="mr-2" />
                       {post.readTime}
                     </span>

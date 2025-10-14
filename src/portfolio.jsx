@@ -53,8 +53,8 @@ const Portfolio = () => {
 
   const BlogHighlight = () => {
     const latestPost = {
-      title: "Decrypting Diaries 1: Manik's Encryptor on AWS",
-      date: "Feb 9, 2025",
+      title: "Decrypting Diaries 4: Stuxnet - When Code Went Nuclear",
+      date: "Oct 13, 2025",
     };
 
     return (
@@ -69,7 +69,7 @@ const Portfolio = () => {
             <h3 className="font-medium">{latestPost.title}</h3>
           </div>
           <Link
-            to="/blog/decrypting-diaries-1"
+            to="/blog/decrypting-diaries-4"
             className={`flex items-center gap-1 ${currentTheme.hover}`}
           >
             Read <ArrowRightIcon size={16} />

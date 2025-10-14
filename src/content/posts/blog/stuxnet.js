@@ -1,7 +1,6 @@
 export const post = {
   id: 4,
-  title:
-    "Decrypting Diaries 4: Stuxnet - The Worm That Turned Software Into Sabotage",
+  title: "Decrypting Diaries 4: Stuxnet - When Code Went Nuclear",
   excerpt:
     "A deep dive into Stuxnet, the world’s first cyber weapon that used code to cause real-world physical destruction.",
   date: "2025-10-13",
