@@ -46,6 +46,5 @@ Stuxnet was patient. So should your defenses.
 For further insights and more blogs like this, visit [Manik Singh's Portfolio](/) or connect on [LinkedIn](https://linkedin.com/in/manik-singh-62b236298).
 
 Happy Decrypting!  
-— Manik
   `,
 };
