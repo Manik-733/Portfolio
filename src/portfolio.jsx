@@ -23,6 +23,7 @@ const Portfolio = () => {
   const [isTyping, setIsTyping] = useState(true);
   const [isDark, setIsDark] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
+  const [expOpen, setExpOpen] = useState(null);
 
   const theme = {
     dark: {
@@ -96,7 +97,7 @@ const Portfolio = () => {
       description:
         "A Flask-based web application providing secure AES encryption and decryption services for files. Features automatic key generation and a user-friendly interface for secure data management.",
       tags: ["Python", "Flask", "Cryptography", "Cloud"],
-      link: "https://maniks-encryptor.com/ ",
+      link: "https://github.com/Manik-733/Manik-s-Encryptor",
       category: "security",
     },
     {
@@ -104,8 +105,41 @@ const Portfolio = () => {
       description:
         "Educational tool demonstrating network traffic analysis for anomaly detection. Implements data preprocessing, visualization, and Z-score based anomaly detection for identifying security threats.",
       tags: ["Python", "Data Analysis", "Security", "Pandas"],
-      link: "https://github.com/Manik-733/Network-Analysis-Tool ",
+      link: "https://github.com/Manik-733/Network-Analysis-Tool",
       category: "networking",
+    },
+  ];
+
+  const experience = [
+    {
+      company: "SAP",
+      role: "Support Engineer Intern (iXp, BTP Technical Support)",
+      period: "Sep 2025 – May 2026",
+      location: "Vancouver, BC · Hybrid",
+      summary:
+        "Delivered enterprise support for SAP BTP tenants, troubleshooting across Linux, Unix, and database environments.",
+      details: [
+        "Provided enterprise-level support for SAP Business Technology Platform tenants, resolving software, database, and integration issues.",
+        "Troubleshot across Linux, Unix (Solaris / HP-UX / AIX), and databases (HANA, Oracle, SQL Server, DB2).",
+        "Collaborated with global teams to stabilize and secure integrations using XML, HTTPS, and SAML.",
+        "Performed log analysis and diagnostics to identify performance bottlenecks and prevent outages.",
+        "Contributed to internal knowledge bases and documentation to streamline troubleshooting processes.",
+      ],
+    },
+    {
+      company: "AbCellera Biologics Inc.",
+      role: "IT Help Desk Intern (Co-op)",
+      period: "Jan 2025 – Aug 2025",
+      location: "Vancouver, BC · On-site",
+      summary:
+        "Supported 600+ users; managed endpoints, accounts, and network security controls across macOS and Windows.",
+      details: [
+        "Delivered front-line IT support for over 300 employees using Jira and BeyondTrust.",
+        "Managed endpoint compliance and deployment with Intune, Jamf, and Automox.",
+        "Administered IAM via Okta and Google Admin (provisioning, MFA, group access).",
+        "Documented technical workflows and SOPs in Confluence to enhance onboarding and efficiency.",
+        "Strengthened email and network security by implementing SPF, DKIM, and DMARC configurations.",
+      ],
     },
   ];
 
@@ -194,9 +228,10 @@ const Portfolio = () => {
             <p
               className={`text-xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed`}
             >
-              Passionate about securing digital landscapes and developing robust
-              security solutions. Focused on cyber defense, network security,
-              and secure software development.
+              Cybersecurity enthusiast with hands-on experience in network
+              defense, endpoint management, and cloud automation. Skilled at
+              turning complex security concepts into functional, real-world
+              solutions.
             </p>
 
             <BlogHighlight />
@@ -240,14 +275,80 @@ const Portfolio = () => {
             <p
               className={`${currentTheme.secondaryText} text-xl leading-relaxed`}
             >
-              I'm a Computer Science student at Thompson Rivers University, with
-              a love for cybersecurity. My passion lies in understanding and
-              implementing robust security measures to protect digital assets.
-              While I pursue higher knowledge in this field, I love to make
-              projects that resonate with my learnings. If you share the same
-              passion or just want need a friend's guidance, feel free to
-              connect.
+              I’m a Computer Science student at Thompson Rivers University with
+              a strong focus on cybersecurity and cloud systems. Through co-op
+              experiences at AbCellera and SAP iXp, I’ve worked hands-on with
+              enterprise infrastructure, endpoint protection, and security
+              automation — blending technical curiosity with practical defense.
+              My work spans tools like AWS, Intune, Okta, Jamf, and SentinelOne,
+              and I’m constantly exploring how development, infrastructure, and
+              security intersect. Whether it’s building secure applications,
+              auditing systems, or experimenting with forensics and network
+              defense, I aim to create solutions that make technology safer,
+              smarter, and more resilient.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-32 px-8">
+        <div className="container mx-auto">
+          <h2 className="text-5xl font-mono mb-12 flex items-center">
+            <LockIcon size={40} className="mr-4" />
+            ./Experience
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {experience.map((exp, idx) => {
+              const open = expOpen === idx;
+              return (
+                <div
+                  key={idx}
+                  className={`${currentTheme.cardBg} p-8 rounded-lg border ${currentTheme.border} transition-all`}
+                >
+                  <h3 className="text-3xl font-mono mb-2">{exp.company}</h3>
+                  <p className={`${currentTheme.secondaryText} text-xl mb-1`}>
+                    {exp.role}
+                  </p>
+                  <p className={`${currentTheme.secondaryText} text-lg mb-6`}>
+                    {exp.period} • {exp.location}
+                  </p>
+
+                  <p className={`${currentTheme.secondaryText} text-xl mb-6`}>
+                    {exp.summary}
+                  </p>
+
+                  {open && (
+                    <ul
+                      className={`space-y-3 ${currentTheme.secondaryText} text-lg mb-6`}
+                    >
+                      {exp.details.map((d, i) => (
+                        <li key={i} className="flex">
+                          <span
+                            className={`mt-2 mr-3 w-2 h-2 rounded-full ${currentTheme.dot}`}
+                          ></span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <button
+                    onClick={() => setExpOpen(open ? null : idx)}
+                    className={`inline-flex items-center text-lg ${currentTheme.hover}`}
+                  >
+                    {open ? "Show less" : "Know more"}
+                    <ArrowRightIcon
+                      size={18}
+                      className={`ml-2 transform transition-transform ${
+                        open ? "rotate-90" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -431,7 +532,7 @@ const Portfolio = () => {
       {/* Footer */}
       <footer className={`py-8 px-8 border-t ${currentTheme.border}`}>
         <div className="container mx-auto text-center text-lg text-gray-400">
-          <p>© 2024 Manik Singh. All rights reserved.</p>
+          <p>© 2025 Manik Singh. All rights reserved.</p>
         </div>
       </footer>
     </div>
