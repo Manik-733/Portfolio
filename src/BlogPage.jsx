@@ -138,18 +138,18 @@ const BlogPage = ({ isDark, setIsDark }) => {
         </div>
       </header>
 
-      <div className="container mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-4 sm:mb-6 flex items-center">
-          <BookOpenIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+      <div className="container mx-auto py-10 sm:py-12 px-6 sm:px-8 lg:px-12">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-3 sm:mb-4 flex items-center">
+          <BookOpenIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
           Decrypting Diaries
         </h1>
-        <p className={`text-base sm:text-lg lg:text-xl ${currentTheme.secondaryText} max-w-3xl`}>
+        <p className={`text-sm sm:text-base lg:text-lg ${currentTheme.secondaryText} max-w-3xl`}>
           Exploring cybersecurity, network defense, and secure development
           practices
         </p>
       </div>
 
-      <div className="container mx-auto px-4 mb-12">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 mb-12">
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
           <div
             className={`relative flex-1 max-w-md ${currentTheme.cardBg} rounded-lg`}
@@ -163,12 +163,12 @@ const BlogPage = ({ isDark, setIsDark }) => {
               className={`w-full pl-12 pr-4 py-3 bg-transparent border ${currentTheme.border} rounded-lg focus:outline-none focus:ring-2 ${currentTheme.text}`}
             />
           </div>
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-2 sm:gap-3 flex-wrap">
             {allTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setActiveTag(tag)}
-                className={`px-4 py-2 rounded-lg transition-colors ${
+                className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
                   activeTag === tag
                     ? `${currentTheme.tagBg} ${currentTheme.tagText}`
                     : `${currentTheme.cardBg} ${currentTheme.border} border`
@@ -181,8 +181,8 @@ const BlogPage = ({ isDark, setIsDark }) => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 mb-16 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {filteredPosts.map((post) => (
             <Link
               key={post.id}
@@ -194,33 +194,33 @@ const BlogPage = ({ isDark, setIsDark }) => {
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-40 object-cover"
                 />
-                <div className="p-6">
-                  <div className="flex gap-2 mb-4">
+                <div className="p-4">
+                  <div className="flex gap-2 mb-3">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded-full text-sm`}
+                        className={`${currentTheme.tagBg} ${currentTheme.tagText} px-2 py-1 rounded-full text-xs`}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h2 className="text-2xl font-mono mb-3">{post.title}</h2>
-                  <p className={`${currentTheme.secondaryText} mb-4`}>
+                  <h2 className="text-lg sm:text-xl font-mono mb-2 leading-snug">{post.title}</h2>
+                  <p className={`${currentTheme.secondaryText} mb-3 text-sm leading-relaxed`}>
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
                     <span
-                      className={`${currentTheme.secondaryText} text-sm flex items-center`}
+                      className={`${currentTheme.secondaryText} text-xs flex items-center`}
                     >
-                      <ClockIcon size={16} className="mr-2" />
+                      <ClockIcon size={14} className="mr-1" />
                       {post.readTime}
                     </span>
-                    <span className={`${currentTheme.hover} flex items-center`}>
+                    <span className={`${currentTheme.hover} flex items-center text-sm`}>
                       Read More
-                      <ChevronRightIcon size={16} className="ml-2" />
+                      <ChevronRightIcon size={14} className="ml-1" />
                     </span>
                   </div>
                 </div>

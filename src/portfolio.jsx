@@ -195,6 +195,12 @@ const Portfolio = () => {
                 Blog
               </Link>
               <a
+                href="#about"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                About
+              </a>
+              <a
                 href="#experience"
                 className={`text-lg ${currentTheme.hover} transition-colors`}
               >
@@ -248,6 +254,13 @@ const Portfolio = () => {
                   Blog
                 </Link>
                 <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  About
+                </a>
+                <a
                   href="#experience"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
@@ -293,21 +306,21 @@ const Portfolio = () => {
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           <div className="flex-1 text-center lg:text-left">
             <h1
-              className={`font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 ${currentTheme.text}`}
+              className={`font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${currentTheme.text}`}
             >
               Manik Singh
             </h1>
-            <div className="font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
+            <div className="font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
               {text}
               {isTyping && <span className="animate-pulse">|</span>}
             </div>
             <p
-              className={`text-lg sm:text-xl ${currentTheme.secondaryText} max-w-3xl mb-6 sm:mb-8 mx-auto lg:mx-0`}
+              className={`text-base sm:text-lg ${currentTheme.secondaryText} max-w-3xl mb-6 sm:mb-8 mx-auto lg:mx-0`}
             >
               Computer Science @ Thompson Rivers University
             </p>
             <p
-              className={`text-base sm:text-lg lg:text-xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed mx-auto lg:mx-0`}
+              className={`text-sm sm:text-base lg:text-lg ${currentTheme.secondaryText} max-w-2xl leading-relaxed mx-auto lg:mx-0`}
             >
               Cybersecurity enthusiast with hands-on experience in network
               defense, endpoint management, and cloud automation. Skilled at
@@ -346,8 +359,8 @@ const Portfolio = () => {
       {/* About Section */}
       <section id="about" className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}>
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
-            <ShieldIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
+            <ShieldIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
             ./About
           </h2>
           <div
@@ -356,7 +369,7 @@ const Portfolio = () => {
             } p-8 rounded-lg border ${currentTheme.border}`}
           >
             <p
-              className={`${currentTheme.secondaryText} text-xl leading-relaxed`}
+              className={`${currentTheme.secondaryText} text-base sm:text-lg leading-relaxed`}
             >
               I’m a Computer Science student at Thompson Rivers University with
               a strong focus on cybersecurity and cloud systems. Through co-op
@@ -377,8 +390,8 @@ const Portfolio = () => {
       {/* Experience Section */}
       <section id="experience" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
-            <LockIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
+            <LockIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
             ./Experience
           </h2>
 
@@ -390,7 +403,7 @@ const Portfolio = () => {
                   key={idx}
                   className={`${currentTheme.cardBg} p-8 rounded-lg border ${currentTheme.border} transition-all`}
                 >
-                  <h3 className="text-3xl font-mono mb-2 flex items-center gap-3">
+                  <h3 className="text-2xl font-mono mb-2 flex items-center gap-3">
                     {companyLogos[exp.company] && (
                       <img
                         src={companyLogos[exp.company]}
@@ -404,20 +417,20 @@ const Portfolio = () => {
                     {exp.company}
                   </h3>
 
-                  <p className={`${currentTheme.secondaryText} text-xl mb-1`}>
+                  <p className={`${currentTheme.secondaryText} text-base sm:text-lg mb-1`}>
                     {exp.role}
                   </p>
-                  <p className={`${currentTheme.secondaryText} text-lg mb-6`}>
+                  <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}>
                     {exp.period} • {exp.location}
                   </p>
 
-                  <p className={`${currentTheme.secondaryText} text-xl mb-6`}>
+                  <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}>
                     {exp.summary}
                   </p>
 
                   {open && (
                     <ul
-                      className={`space-y-3 ${currentTheme.secondaryText} text-lg mb-6`}
+                      className={`space-y-2 ${currentTheme.secondaryText} text-sm sm:text-base mb-4`}
                     >
                       {exp.details.map((d, i) => (
                         <li key={i} className="flex">
@@ -432,7 +445,7 @@ const Portfolio = () => {
 
                   <button
                     onClick={() => setExpOpen(open ? null : idx)}
-                    className={`inline-flex items-center text-lg ${currentTheme.hover}`}
+                    className={`inline-flex items-center text-sm sm:text-base ${currentTheme.hover}`}
                   >
                     {open ? "Show less" : "Know more"}
                     <ArrowRightIcon
@@ -452,8 +465,8 @@ const Portfolio = () => {
       {/* Certifications Section */}
       <section id="certifications" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
-            <ShieldIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
+            <ShieldIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
             ./Certifications
           </h2>
 
@@ -464,11 +477,11 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-2">CompTIA Security+</h3>
-              <p className={`${currentTheme.secondaryText} text-lg mb-3`}>
+              <h3 className="text-xl sm:text-2xl font-mono mb-2">CompTIA Security+</h3>
+              <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Aug 2025 · Expires Aug 2028
               </p>
-              <p className={`${currentTheme.secondaryText} text-xl mb-4`}>
+              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
                 Industry-recognized cybersecurity credential demonstrating
                 skills in threat detection, risk mitigation, and network
                 defense.
@@ -477,7 +490,7 @@ const Portfolio = () => {
                 href="https://www.credly.com/badges/fda9c7b1-d278-4b41-be10-427c4b1a26c7/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${currentTheme.hover} text-lg flex items-center gap-2`}
+                className={`${currentTheme.hover} text-sm sm:text-base flex items-center gap-2`}
               >
                 Verify Credential <ExternalLinkIcon size={18} />
               </a>
@@ -489,13 +502,13 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-2">
+              <h3 className="text-xl sm:text-2xl font-mono mb-2">
                 Atlassian: Jira Service Management for ITSM
               </h3>
-              <p className={`${currentTheme.secondaryText} text-lg mb-3`}>
+              <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Dec 2024
               </p>
-              <p className={`${currentTheme.secondaryText} text-xl mb-4`}>
+              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
                 Practical certification on IT Service Management workflows,
                 ticketing automation, and SLA configuration in Jira Service
                 Management.
@@ -508,13 +521,13 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-2">
+              <h3 className="text-xl sm:text-2xl font-mono mb-2">
                 Meta Programming in Python
               </h3>
-              <p className={`${currentTheme.secondaryText} text-lg mb-3`}>
+              <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Oct 2023
               </p>
-              <p className={`${currentTheme.secondaryText} text-xl mb-4`}>
+              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
                 Python fundamentals, data structures, and logic foundations for
                 secure back-end development.
               </p>
@@ -522,7 +535,7 @@ const Portfolio = () => {
                 href="https://coursera.org/verify/DXLC86THG4XR"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${currentTheme.hover} text-lg flex items-center gap-2`}
+                className={`${currentTheme.hover} text-sm sm:text-base flex items-center gap-2`}
               >
                 Verify Credential <ExternalLinkIcon size={18} />
               </a>
@@ -534,13 +547,13 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-2">
+              <h3 className="text-xl sm:text-2xl font-mono mb-2">
                 Meta Back-End Development
               </h3>
-              <p className={`${currentTheme.secondaryText} text-lg mb-3`}>
+              <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Sep 2023
               </p>
-              <p className={`${currentTheme.secondaryText} text-xl mb-4`}>
+              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
                 Focuses on APIs, databases, and server-side architecture using
                 Node.js and Express.
               </p>
@@ -548,7 +561,7 @@ const Portfolio = () => {
                 href="https://coursera.org/verify/MCTUMT4AXNBD"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${currentTheme.hover} text-lg flex items-center gap-2`}
+                className={`${currentTheme.hover} text-sm sm:text-base flex items-center gap-2`}
               >
                 Verify Credential <ExternalLinkIcon size={18} />
               </a>
@@ -560,13 +573,13 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-2">
+              <h3 className="text-xl sm:text-2xl font-mono mb-2">
                 Meta Front-End Development
               </h3>
-              <p className={`${currentTheme.secondaryText} text-lg mb-3`}>
+              <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Sep 2023
               </p>
-              <p className={`${currentTheme.secondaryText} text-xl mb-4`}>
+              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
                 Covers HTML, CSS, JavaScript, and React principles for building
                 responsive user interfaces.
               </p>
@@ -574,7 +587,7 @@ const Portfolio = () => {
                 href="https://coursera.org/verify/RTRBU48NRFUV"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${currentTheme.hover} text-lg flex items-center gap-2`}
+                className={`${currentTheme.hover} text-sm sm:text-base flex items-center gap-2`}
               >
                 Verify Credential <ExternalLinkIcon size={18} />
               </a>
@@ -586,17 +599,17 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
-            <CodeIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
+            <CodeIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
             ./Projects
           </h2>
 
-          <div className="flex flex-wrap gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
+          <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
             {filters.map((filter) => (
               <button
                 key={filter.name}
                 onClick={() => setActiveFilter(filter.name)}
-                className={`px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg rounded-lg transition-colors duration-300 ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg transition-colors duration-300 ${
                   activeFilter === filter.name
                     ? `${currentTheme.tagBg} ${currentTheme.tagText}`
                     : `${currentTheme.cardBg} ${currentTheme.border} border`
@@ -614,22 +627,22 @@ const Portfolio = () => {
                 className={`${currentTheme.cardBg} p-8 rounded-lg border ${currentTheme.border}
                   hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
               >
-                <h3 className="text-3xl font-mono mb-4 flex items-center">
+                <h3 className="text-xl sm:text-2xl font-mono mb-3 flex items-center">
                   {project.category === "security" ? (
-                    <LockIcon size={24} className="mr-3" />
+                    <LockIcon size={20} className="mr-2" />
                   ) : (
-                    <NetworkIcon size={24} className="mr-3" />
+                    <NetworkIcon size={20} className="mr-2" />
                   )}
                   {project.title}
                 </h3>
-                <p className={`${currentTheme.secondaryText} text-xl mb-6`}>
+                <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}>
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-3 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className={`text-xl ${currentTheme.tagBg} ${currentTheme.tagText} px-4 py-2 rounded`}
+                      className={`text-xs sm:text-sm ${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded`}
                     >
                       {tag}
                     </span>
@@ -639,7 +652,7 @@ const Portfolio = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center text-lg ${currentTheme.hover} transition-colors`}
+                  className={`inline-flex items-center text-sm sm:text-base ${currentTheme.hover} transition-colors`}
                 >
                   Visit <ExternalLinkIcon size={20} className="ml-2" />
                 </a>
@@ -652,8 +665,8 @@ const Portfolio = () => {
       {/* Skills Section */}
       <section id="skills" className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}>
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
-            <BookIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
+            <BookIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
             ./Skills
           </h2>
 
@@ -664,8 +677,8 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-6">Cybersecurity Domains</h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">Cybersecurity Domains</h3>
+              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -723,10 +736,10 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-6">
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">
                 Security Tools & Platforms
               </h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -784,10 +797,10 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-6">
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">
                 Cloud & Infrastructure
               </h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -857,10 +870,10 @@ const Portfolio = () => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-3xl font-mono mb-6">
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">
                 Programming & Web Development
               </h3>
-              <ul className={`space-y-4 ${currentTheme.secondaryText} text-xl`}>
+              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -918,30 +931,30 @@ const Portfolio = () => {
       {/* Contact Section */}
       <section id="contact" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-mono mb-8 sm:mb-12 flex items-center justify-center lg:justify-start">
-            <MailIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+          <h2 className="text-2xl sm:text-3xl font-mono mb-6 sm:mb-8 flex items-center justify-center lg:justify-start">
+            <MailIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
             ./Contact
           </h2>
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-12 justify-center items-center">
             <a
               href="https://github.com/Manik-733"
-              className={`flex items-center space-x-3 text-xl ${currentTheme.hover} transition-colors`}
+              className={`flex items-center space-x-2 text-base sm:text-lg ${currentTheme.hover} transition-colors`}
             >
-              <GithubIcon size={32} />
+              <GithubIcon size={24} />
               <span>GitHub</span>
             </a>
             <a
               href="https://ca.linkedin.com/in/manik-singh-62b236298/"
-              className={`flex items-center space-x-3 text-xl ${currentTheme.hover} transition-colors`}
+              className={`flex items-center space-x-2 text-base sm:text-lg ${currentTheme.hover} transition-colors`}
             >
-              <LinkedinIcon size={32} />
+              <LinkedinIcon size={24} />
               <span>LinkedIn</span>
             </a>
             <a
               href="mailto:maniksingh733@gmail.com"
-              className={`flex items-center space-x-3 text-xl ${currentTheme.hover} transition-colors`}
+              className={`flex items-center space-x-2 text-base sm:text-lg ${currentTheme.hover} transition-colors`}
             >
-              <MailIcon size={32} />
+              <MailIcon size={24} />
               <span>Email</span>
             </a>
           </div>
