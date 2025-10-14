@@ -110,6 +110,11 @@ const Portfolio = () => {
     },
   ];
 
+  const companyLogos = {
+    SAP: "/sap.jpg",
+    "AbCellera Biologics Inc.": "/abcellera.jpg",
+  };
+
   const experience = [
     {
       company: "SAP",
@@ -307,7 +312,20 @@ const Portfolio = () => {
                   key={idx}
                   className={`${currentTheme.cardBg} p-8 rounded-lg border ${currentTheme.border} transition-all`}
                 >
-                  <h3 className="text-3xl font-mono mb-2">{exp.company}</h3>
+                  <h3 className="text-3xl font-mono mb-2 flex items-center gap-3">
+                    {companyLogos[exp.company] && (
+                      <img
+                        src={companyLogos[exp.company]}
+                        alt={`${exp.company} logo`}
+                        className={`h-11 w-11 object-contain opacity-90 ${
+                          isDark ? "invert" : ""
+                        }`}
+                        title={exp.company}
+                      />
+                    )}
+                    {exp.company}
+                  </h3>
+
                   <p className={`${currentTheme.secondaryText} text-xl mb-1`}>
                     {exp.role}
                   </p>
