@@ -134,7 +134,7 @@ const Portfolio = () => {
       summary:
         "Supported 600+ users; managed endpoints, accounts, and network security controls across macOS and Windows.",
       details: [
-        "Delivered front-line IT support for over 300 employees using Jira and BeyondTrust.",
+        "Delivered front-line IT support for over 600 employees using Jira and BeyondTrust.",
         "Managed endpoint compliance and deployment with Intune, Jamf, and Automox.",
         "Administered IAM via Okta and Google Admin (provisioning, MFA, group access).",
         "Documented technical workflows and SOPs in Confluence to enhance onboarding and efficiency.",
