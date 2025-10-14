@@ -15,6 +15,8 @@ import {
   NetworkIcon,
   ExternalLinkIcon,
   ArrowRightIcon,
+  MenuIcon,
+  XIcon,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -24,6 +26,7 @@ const Portfolio = () => {
   const [isDark, setIsDark] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const [expOpen, setExpOpen] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const theme = {
     dark: {
@@ -166,83 +169,145 @@ const Portfolio = () => {
       {/* Theme Toggle */}
       <button
         onClick={() => setIsDark(!isDark)}
-        className={`fixed top-8 right-8 p-3 rounded-full ${currentTheme.cardBg} ${currentTheme.border} border`}
+        className={`fixed bottom-6 right-6 z-50 p-3 rounded-full ${currentTheme.cardBg} ${currentTheme.border} border shadow-lg`}
       >
-        {isDark ? <SunIcon size={32} /> : <MoonIcon size={32} />}
+        {isDark ? <SunIcon size={24} /> : <MoonIcon size={24} />}
       </button>
 
-      <header className={`p-8 border-b ${currentTheme.border}`}>
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <TerminalIcon size={32} />
-            <span className="text-3xl font-mono">Manik's Fortress</span>
+      {/* Header with Responsive Navigation */}
+      <header className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            {/* Logo */}
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <TerminalIcon size={28} className="sm:w-8 sm:h-8" />
+              <span className="text-xl sm:text-2xl lg:text-3xl font-mono whitespace-nowrap">
+                Manik's Fortress
+              </span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <Link
+                to="/blog"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Blog
+              </Link>
+              <a
+                href="#experience"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Experience
+              </a>
+              <a
+                href="#certifications"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Certifications
+              </a>
+              <a
+                href="#projects"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Projects
+              </a>
+              <a
+                href="#skills"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Skills
+              </a>
+              <a
+                href="#contact"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Contact
+              </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`lg:hidden p-2 rounded-md ${currentTheme.hover}`}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <XIcon size={28} /> : <MenuIcon size={28} />}
+            </button>
           </div>
-          <nav className="space-x-16">
-            <Link
-              to="/blog"
-              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
-            >
-              Blog
-            </Link>
 
-            <a
-              href="#experience"
-              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
-            >
-              Experience
-            </a>
-
-            <a
-              href="#certifications"
-              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
-            >
-              Certifications
-            </a>
-
-            <a
-              href="#projects"
-              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
-            >
-              Projects
-            </a>
-
-            <a
-              href="#skills"
-              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
-            >
-              Skills
-            </a>
-
-            <a
-              href="#contact"
-              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
-            >
-              Contact
-            </a>
-          </nav>
+          {/* Mobile Navigation Menu */}
+          {mobileMenuOpen && (
+            <nav className={`lg:hidden pb-4 ${currentTheme.bg}`}>
+              <div className="flex flex-col space-y-3">
+                <Link
+                  to="/blog"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Blog
+                </Link>
+                <a
+                  href="#experience"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Experience
+                </a>
+                <a
+                  href="#certifications"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Certifications
+                </a>
+                <a
+                  href="#projects"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Projects
+                </a>
+                <a
+                  href="#skills"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Skills
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Contact
+                </a>
+              </div>
+            </nav>
+          )}
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-32 px-8">
-        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div className="flex-1">
+      <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+          <div className="flex-1 text-center lg:text-left">
             <h1
-              className={`font-mono text-7xl font-bold mb-6 ${currentTheme.text}`}
+              className={`font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 ${currentTheme.text}`}
             >
               Manik Singh
             </h1>
-            <div className="font-mono text-4xl mb-8 flex items-center gap-2">
+            <div className="font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
               {text}
               {isTyping && <span className="animate-pulse">|</span>}
             </div>
             <p
-              className={`text-xl ${currentTheme.secondaryText} max-w-3xl mb-8`}
+              className={`text-lg sm:text-xl ${currentTheme.secondaryText} max-w-3xl mb-6 sm:mb-8 mx-auto lg:mx-0`}
             >
               Computer Science @ Thompson Rivers University
             </p>
             <p
-              className={`text-xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed`}
+              className={`text-base sm:text-lg lg:text-xl ${currentTheme.secondaryText} max-w-2xl leading-relaxed mx-auto lg:mx-0`}
             >
               Cybersecurity enthusiast with hands-on experience in network
               defense, endpoint management, and cloud automation. Skilled at
@@ -250,17 +315,19 @@ const Portfolio = () => {
               solutions.
             </p>
 
-            <BlogHighlight />
+            <div className="flex justify-center lg:justify-start">
+              <BlogHighlight />
+            </div>
           </div>
 
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-center mt-8 lg:mt-0">
             <div
               className={`p-2 rounded-full ${
                 isDark ? "bg-cyan-400/10" : "bg-blue-400/10"
               }`}
             >
               <div
-                className={`w-96 h-96 rounded-full overflow-hidden border-4 ${
+                className={`w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 ${
                   currentTheme.text
                 } shadow-xl 
                 ${isDark ? "shadow-cyan-500/20" : "shadow-blue-500/20"}`}
@@ -277,10 +344,10 @@ const Portfolio = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className={`py-32 px-8 ${currentTheme.cardBg}`}>
+      <section id="about" className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}>
         <div className="container mx-auto">
-          <h2 className="text-5xl font-mono mb-12 flex items-center">
-            <ShieldIcon size={40} className="mr-4" />
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
+            <ShieldIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
             ./About
           </h2>
           <div
@@ -308,10 +375,10 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-32 px-8">
+      <section id="experience" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-mono mb-12 flex items-center">
-            <LockIcon size={40} className="mr-4" />
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
+            <LockIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
             ./Experience
           </h2>
 
@@ -328,7 +395,9 @@ const Portfolio = () => {
                       <img
                         src={companyLogos[exp.company]}
                         alt={`${exp.company} logo`}
-                        className="h-9 w-9 object-contain opacity-90"
+                        className={`h-9 w-9 object-contain opacity-90 rounded ${
+                          exp.company === "SAP" && isDark ? "bg-white p-1" : ""
+                        }`}
                         title={exp.company}
                       />
                     )}
@@ -381,10 +450,10 @@ const Portfolio = () => {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-32 px-8">
+      <section id="certifications" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-mono mb-12 flex items-center">
-            <ShieldIcon size={40} className="mr-4" />
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
+            <ShieldIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
             ./Certifications
           </h2>
 
@@ -515,19 +584,19 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 px-8">
+      <section id="projects" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-mono mb-12 flex items-center">
-            <CodeIcon size={40} className="mr-4" />
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
+            <CodeIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
             ./Projects
           </h2>
 
-          <div className="flex gap-6 mb-12">
+          <div className="flex flex-wrap gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
             {filters.map((filter) => (
               <button
                 key={filter.name}
                 onClick={() => setActiveFilter(filter.name)}
-                className={`px-6 py-3 text-lg rounded-lg transition-colors duration-300 ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg rounded-lg transition-colors duration-300 ${
                   activeFilter === filter.name
                     ? `${currentTheme.tagBg} ${currentTheme.tagText}`
                     : `${currentTheme.cardBg} ${currentTheme.border} border`
@@ -581,10 +650,10 @@ const Portfolio = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className={`py-32 px-8 ${currentTheme.cardBg}`}>
+      <section id="skills" className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}>
         <div className="container mx-auto">
-          <h2 className="text-5xl font-mono mb-12 flex items-center">
-            <BookIcon size={40} className="mr-4" />
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-8 sm:mb-12 flex items-center">
+            <BookIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
             ./Skills
           </h2>
 
@@ -847,13 +916,13 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-8">
+      <section id="contact" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-mono mb-12 flex items-center">
-            <MailIcon size={40} className="mr-4" />
+          <h2 className="text-3xl sm:text-4xl font-mono mb-8 sm:mb-12 flex items-center justify-center lg:justify-start">
+            <MailIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
             ./Contact
           </h2>
-          <div className="flex space-x-12 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-12 justify-center items-center">
             <a
               href="https://github.com/Manik-733"
               className={`flex items-center space-x-3 text-xl ${currentTheme.hover} transition-colors`}
@@ -880,8 +949,8 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className={`py-8 px-8 border-t ${currentTheme.border}`}>
-        <div className="container mx-auto text-center text-lg text-gray-400">
+      <footer className={`py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-t ${currentTheme.border}`}>
+        <div className="container mx-auto text-center text-base sm:text-lg text-gray-400">
           <p>© 2025 Manik Singh. All rights reserved.</p>
         </div>
       </footer>

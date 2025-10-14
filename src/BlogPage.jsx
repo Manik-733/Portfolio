@@ -9,6 +9,8 @@ import {
   SearchIcon,
   SunIcon,
   MoonIcon,
+  ArrowLeftIcon,
+  HomeIcon,
 } from "lucide-react";
 
 const BlogPage = ({ isDark, setIsDark }) => {
@@ -104,19 +106,44 @@ const BlogPage = ({ isDark, setIsDark }) => {
 
   return (
     <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text}`}>
+      {/* Theme Toggle */}
       <button
         onClick={() => setIsDark(!isDark)}
-        className={`fixed top-8 right-8 p-3 rounded-full ${currentTheme.cardBg} ${currentTheme.border} border`}
+        className={`fixed bottom-6 right-6 z-50 p-3 rounded-full ${currentTheme.cardBg} ${currentTheme.border} border shadow-lg`}
       >
-        {isDark ? <SunIcon size={32} /> : <MoonIcon size={32} />}
+        {isDark ? <SunIcon size={24} /> : <MoonIcon size={24} />}
       </button>
 
-      <div className="container mx-auto py-16 px-4">
-        <h1 className="text-5xl font-mono mb-6 flex items-center">
-          <BookOpenIcon size={40} className="mr-4" />
-          ./Blog
+      {/* Header with Navigation */}
+      <header className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <Link
+              to="/"
+              className={`flex items-center gap-2 ${currentTheme.hover} transition-colors`}
+            >
+              <ArrowLeftIcon size={24} />
+              <HomeIcon size={24} />
+              <span className="text-lg sm:text-xl font-mono hidden sm:inline">
+                Back to Home
+              </span>
+            </Link>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <BookOpenIcon size={28} className="sm:w-8 sm:h-8" />
+              <span className="text-xl sm:text-2xl lg:text-3xl font-mono">
+                Blog
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="container mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-mono mb-4 sm:mb-6 flex items-center">
+          <BookOpenIcon size={32} className="mr-3 sm:mr-4 sm:w-10 sm:h-10" />
+          Decrypting Diaries
         </h1>
-        <p className={`text-xl ${currentTheme.secondaryText} max-w-3xl`}>
+        <p className={`text-base sm:text-lg lg:text-xl ${currentTheme.secondaryText} max-w-3xl`}>
           Exploring cybersecurity, network defense, and secure development
           practices
         </p>
