@@ -4,19 +4,10 @@ import BlogPage from "./BlogPage.jsx"; // Add .jsx extension
 import BlogPost from "./BlogPost.jsx"; // Add .jsx extension
 
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const App = () => {
-  // Initialize dark mode from localStorage or default to false
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    return saved ? JSON.parse(saved) : false;
-  });
-
-  // Save to localStorage whenever dark mode changes
-  useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(isDark));
-  }, [isDark]);
+  const [isDark, setIsDark] = useState(false);
 
   return (
     <Router>
