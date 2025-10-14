@@ -186,13 +186,6 @@ const Portfolio = () => {
             </Link>
 
             <a
-              href="#about"
-              className={`text-xl ${currentTheme.hover} transition-colors p-3`}
-            >
-              About
-            </a>
-
-            <a
               href="#experience"
               className={`text-xl ${currentTheme.hover} transition-colors p-3`}
             >
@@ -335,8 +328,7 @@ const Portfolio = () => {
                       <img
                         src={companyLogos[exp.company]}
                         alt={`${exp.company} logo`}
-                 className="h-9 w-9 object-contain opacity-90"
-
+                        className="h-9 w-9 object-contain opacity-90"
                         title={exp.company}
                       />
                     )}
