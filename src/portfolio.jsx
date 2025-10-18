@@ -174,7 +174,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </button>
 
       {/* Header with Responsive Navigation */}
-      <header className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}>
+      <header
+        className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
@@ -356,7 +358,10 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </section>
 
       {/* About Section */}
-      <section id="about" className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}>
+      <section
+        id="about"
+        className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}
+      >
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
             <ShieldIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
@@ -387,7 +392,10 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+      <section
+        id="experience"
+        className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
+      >
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
             <LockIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
@@ -416,14 +424,20 @@ const Portfolio = ({ isDark, setIsDark }) => {
                     {exp.company}
                   </h3>
 
-                  <p className={`${currentTheme.secondaryText} text-base sm:text-lg mb-1`}>
+                  <p
+                    className={`${currentTheme.secondaryText} text-base sm:text-lg mb-1`}
+                  >
                     {exp.role}
                   </p>
-                  <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}>
+                  <p
+                    className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}
+                  >
                     {exp.period} • {exp.location}
                   </p>
 
-                  <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}>
+                  <p
+                    className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}
+                  >
                     {exp.summary}
                   </p>
 
@@ -462,7 +476,10 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+      <section
+        id="certifications"
+        className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
+      >
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
             <ShieldIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
@@ -476,11 +493,15 @@ const Portfolio = ({ isDark, setIsDark }) => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-xl sm:text-2xl font-mono mb-2">CompTIA Security+</h3>
+              <h3 className="text-xl sm:text-2xl font-mono mb-2">
+                CompTIA Security+
+              </h3>
               <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Aug 2025 · Expires Aug 2028
               </p>
-              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
+              <p
+                className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}
+              >
                 Industry-recognized cybersecurity credential demonstrating
                 skills in threat detection, risk mitigation, and network
                 defense.
@@ -507,7 +528,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
               <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Dec 2024
               </p>
-              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
+              <p
+                className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}
+              >
                 Practical certification on IT Service Management workflows,
                 ticketing automation, and SLA configuration in Jira Service
                 Management.
@@ -526,7 +549,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
               <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Oct 2023
               </p>
-              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
+              <p
+                className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}
+              >
                 Python fundamentals, data structures, and logic foundations for
                 secure back-end development.
               </p>
@@ -552,7 +577,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
               <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Sep 2023
               </p>
-              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
+              <p
+                className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}
+              >
                 Focuses on APIs, databases, and server-side architecture using
                 Node.js and Express.
               </p>
@@ -578,7 +605,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
               <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued Sep 2023
               </p>
-              <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}>
+              <p
+                className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}
+              >
                 Covers HTML, CSS, JavaScript, and React principles for building
                 responsive user interfaces.
               </p>
@@ -596,7 +625,10 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+      <section
+        id="projects"
+        className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
+      >
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
             <CodeIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
@@ -634,7 +666,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   )}
                   {project.title}
                 </h3>
-                <p className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}>
+                <p
+                  className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}
+                >
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -662,7 +696,10 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}>
+      <section
+        id="skills"
+        className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}
+      >
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
             <BookIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
@@ -676,8 +713,12 @@ const Portfolio = ({ isDark, setIsDark }) => {
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
-              <h3 className="text-xl sm:text-2xl font-mono mb-4">Cybersecurity Domains</h3>
-              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">
+                Cybersecurity Domains
+              </h3>
+              <ul
+                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
+              >
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -714,18 +755,6 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   ></span>
                   Encryption
                 </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Security Auditing
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Active Directory Security
-                </li>
               </ul>
             </div>
 
@@ -738,7 +767,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
               <h3 className="text-xl sm:text-2xl font-mono mb-4">
                 Security Tools & Platforms
               </h3>
-              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
+              <ul
+                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
+              >
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -751,12 +782,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   ></span>
                   Wireshark
                 </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Okta
-                </li>
+
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -769,12 +795,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   ></span>
                   HoxHunt
                 </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Jira Service Management
-                </li>
+
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -799,7 +820,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
               <h3 className="text-xl sm:text-2xl font-mono mb-4">
                 Cloud & Infrastructure
               </h3>
-              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
+              <ul
+                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
+              >
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -810,13 +833,13 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Azure
+                  Okta
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Google Workspace
+                  Azure
                 </li>
                 <li className="flex items-center">
                   <span
@@ -840,25 +863,14 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Terraform
+                  Jira Service Management
                 </li>
+
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
                   GitHub
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  System Hardening
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Identity Management
                 </li>
               </ul>
             </div>
@@ -870,9 +882,11 @@ const Portfolio = ({ isDark, setIsDark }) => {
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
               <h3 className="text-xl sm:text-2xl font-mono mb-4">
-                Programming & Web Development
+                Programming
               </h3>
-              <ul className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}>
+              <ul
+                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
+              >
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -901,18 +915,6 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  HTML
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  CSS
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
                   JavaScript
                 </li>
                 <li className="flex items-center">
@@ -921,6 +923,18 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   ></span>
                   React / Next.js
                 </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  HTML
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  CSS
+                </li>
               </ul>
             </div>
           </div>
@@ -928,7 +942,10 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+      <section
+        id="contact"
+        className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
+      >
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl font-mono mb-6 sm:mb-8 flex items-center justify-center lg:justify-start">
             <MailIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
@@ -961,7 +978,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
       </section>
 
       {/* Footer */}
-      <footer className={`py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-t ${currentTheme.border}`}>
+      <footer
+        className={`py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-t ${currentTheme.border}`}
+      >
         <div className="container mx-auto text-center text-base sm:text-lg text-gray-400">
           <p>© 2025 Manik Singh. All rights reserved.</p>
         </div>
