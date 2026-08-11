@@ -21,7 +21,7 @@ import {
 
 const Portfolio = ({ isDark, setIsDark }) => {
   const [text, setText] = useState("");
-  const fullText = "> Securing the Digital Frontier_";
+  const fullText = "Security & Cloud Engineer_";
   const [isTyping, setIsTyping] = useState(true);
   const [activeFilter, setActiveFilter] = useState("all");
   const [expOpen, setExpOpen] = useState(null);
@@ -54,34 +54,6 @@ const Portfolio = ({ isDark, setIsDark }) => {
 
   const currentTheme = isDark ? theme.dark : theme.light;
 
-  const BlogHighlight = () => {
-    const latestPost = {
-      title: "Decrypting Diaries 4: Stuxnet - When Code Went Nuclear",
-      date: "Oct 13, 2025",
-    };
-
-    return (
-      <div
-        className={`mt-8 p-4 rounded-lg border ${currentTheme.border} inline-block`}
-      >
-        <div className="flex items-center gap-4">
-          <div>
-            <span className={`text-sm ${currentTheme.secondaryText}`}>
-              Latest Blog: {latestPost.date}
-            </span>
-            <h3 className="font-medium">{latestPost.title}</h3>
-          </div>
-          <Link
-            to="/blog/decrypting-diaries-4"
-            className={`flex items-center gap-1 ${currentTheme.hover}`}
-          >
-            Read <ArrowRightIcon size={16} />
-          </Link>
-        </div>
-      </div>
-    );
-  };
-
   useEffect(() => {
     if (text.length < fullText.length) {
       const timeout = setTimeout(() => {
@@ -95,18 +67,18 @@ const Portfolio = ({ isDark, setIsDark }) => {
 
   const projects = [
     {
-      title: "Manik's Encryptor",
+      title: "Cryptographic Web Application",
       description:
-        "A Flask-based web application providing secure AES encryption and decryption services for files. Features automatic key generation and a user-friendly interface for secure data management.",
-      tags: ["Python", "Flask", "Cryptography", "Cloud"],
+        "Developed and deployed a security-focused web application implementing authentication, authorization, RBAC, secure session management, encryption, and protected data workflows.",
+      tags: ["Python", "Flask", "AWS", "SQL"],
       link: "https://github.com/Manik-733/Manik-s-Encryptor",
       category: "security",
     },
     {
-      title: "Network Traffic Analysis Tool",
+      title: "Network Anomaly Detection Tool",
       description:
-        "Educational tool demonstrating network traffic analysis for anomaly detection. Implements data preprocessing, visualization, and Z-score based anomaly detection for identifying security threats.",
-      tags: ["Python", "Data Analysis", "Security", "Pandas"],
+        "Developed a Python-based security analysis tool that processes network traffic, identifies anomalous patterns, and generates security metrics and visualizations for investigation.",
+      tags: ["Python", "Pandas", "NumPy", "Matplotlib"],
       link: "https://github.com/Manik-733/Network-Analysis-Tool",
       category: "networking",
     },
@@ -124,13 +96,13 @@ const Portfolio = ({ isDark, setIsDark }) => {
       period: "Sep 2025 – May 2026",
       location: "Vancouver, BC · Hybrid",
       summary:
-        "Delivered enterprise support for SAP BTP tenants, troubleshooting across Linux, Unix, and database environments.",
+        "Investigated authentication, authorization, and secure-access issues across enterprise cloud services. Analyzed SSO and SAML authentication issues, worked with RBAC and identity federation, and performed log analysis for authentication failures.",
       details: [
-        "Provided enterprise-level support for SAP Business Technology Platform tenants, resolving software, database, and integration issues.",
-        "Troubleshot across Linux, Unix (Solaris / HP-UX / AIX), and databases (HANA, Oracle, SQL Server, DB2).",
-        "Collaborated with global teams to stabilize and secure integrations using XML, HTTPS, and SAML.",
-        "Performed log analysis and diagnostics to identify performance bottlenecks and prevent outages.",
-        "Contributed to internal knowledge bases and documentation to streamline troubleshooting processes.",
+        "Supported SAP Business Technology Platform (BTP) investigating authentication, authorization, and permissions issues.",
+        "Analyzed SSO and SAML authentication issues across enterprise cloud services.",
+        "Worked with RBAC and identity federation for secure access control.",
+        "Performed log analysis and root-cause investigation for authentication failures and permission misconfigurations.",
+        "Troubleshot secure integrations involving HTTPS and APIs across distributed cloud systems.",
       ],
     },
     {
@@ -139,13 +111,13 @@ const Portfolio = ({ isDark, setIsDark }) => {
       period: "Jan 2025 – Aug 2025",
       location: "Vancouver, BC · On-site",
       summary:
-        "Supported 600+ users; managed endpoints, accounts, and network security controls across macOS and Windows.",
+        "Managed identity lifecycle operations using Okta and Google Admin Console. Monitored security alerts with SentinelOne and worked with endpoint management platforms. Audited and strengthened email authentication controls.",
       details: [
-        "Delivered front-line IT support for over 600 employees using Jira and BeyondTrust.",
-        "Managed endpoint compliance and deployment with Intune, Jamf, and Automox.",
-        "Administered IAM via Okta and Google Admin (provisioning, MFA, group access).",
-        "Documented technical workflows and SOPs in Confluence to enhance onboarding and efficiency.",
-        "Strengthened email and network security by implementing SPF, DKIM, and DMARC configurations.",
+        "Managed identity lifecycle operations using Okta and Google Admin Console (provisioning, de-provisioning, MFA, SSO).",
+        "Configured and maintained access controls, RBAC, and identity federation.",
+        "Monitored and investigated security alerts using SentinelOne.",
+        "Worked with Intune, Jamf, and Automox for endpoint management and compliance.",
+        "Audited SPF, DKIM, and DMARC email authentication controls and documented security procedures.",
       ],
     },
   ];
@@ -183,7 +155,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
             <div className="flex items-center space-x-2 sm:space-x-3">
               <TerminalIcon size={28} className="sm:w-8 sm:h-8" />
               <span className="text-xl sm:text-2xl lg:text-3xl font-mono whitespace-nowrap">
-                Manik's Fortress
+                Manik&apos;s Fortress
               </span>
             </div>
 
@@ -206,6 +178,12 @@ const Portfolio = ({ isDark, setIsDark }) => {
                 className={`text-lg ${currentTheme.hover} transition-colors`}
               >
                 Experience
+              </a>
+              <a
+                href="#education"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Education
               </a>
               <a
                 href="#certifications"
@@ -269,6 +247,13 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   Experience
                 </a>
                 <a
+                  href="#education"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Education
+                </a>
+                <a
                   href="#certifications"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
@@ -309,28 +294,52 @@ const Portfolio = ({ isDark, setIsDark }) => {
             <h1
               className={`font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${currentTheme.text}`}
             >
-              Manik Singh
+              Hey, I&apos;m Manik.
             </h1>
             <div className="font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-2">
               {text}
               {isTyping && <span className="animate-pulse">|</span>}
             </div>
             <p
-              className={`text-base sm:text-lg ${currentTheme.secondaryText} max-w-3xl mb-6 sm:mb-8 mx-auto lg:mx-0`}
+              className={`text-base sm:text-lg ${currentTheme.secondaryText} max-w-3xl mb-2 sm:mb-2 mx-auto lg:mx-0 font-semibold`}
             >
-              Computer Science @ Thompson Rivers University
+              IAM • Platform Security • Python
             </p>
             <p
-              className={`text-sm sm:text-base lg:text-lg ${currentTheme.secondaryText} max-w-2xl leading-relaxed mx-auto lg:mx-0`}
+              className={`text-sm sm:text-base lg:text-lg ${currentTheme.secondaryText} max-w-2xl leading-relaxed mx-auto lg:mx-0 mb-6 sm:mb-8`}
             >
-              Cybersecurity enthusiast with hands-on experience in network
-              defense, endpoint management, and cloud automation. Skilled at
-              turning complex security concepts into functional, real-world
-              solutions.
+              I&apos;m a Computing Science student with experience at SAP and
+              AbCellera, working across identity, authentication, cloud
+              security, and security operations. I like understanding how
+              systems fail, automating the repetitive parts, and building
+              security into systems from the start.
             </p>
 
-            <div className="flex justify-center lg:justify-start">
-              <BlogHighlight />
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8">
+              <a
+                href="#projects"
+                className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-mono text-sm sm:text-base ${currentTheme.tagBg} ${currentTheme.tagText} ${currentTheme.hover} transition-colors text-center`}
+              >
+                View Projects
+              </a>
+              <a
+                href="https://github.com/Manik-733"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-mono text-sm sm:text-base border ${currentTheme.border} ${currentTheme.hover} transition-colors text-center flex items-center justify-center gap-2`}
+              >
+                <GithubIcon size={18} />
+                GitHub
+              </a>
+              <a
+                href="https://ca.linkedin.com/in/manik-singh-62b236298/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-mono text-sm sm:text-base border ${currentTheme.border} ${currentTheme.hover} transition-colors text-center flex items-center justify-center gap-2`}
+              >
+                <LinkedinIcon size={18} />
+                LinkedIn
+              </a>
             </div>
           </div>
 
@@ -475,6 +484,41 @@ const Portfolio = ({ isDark, setIsDark }) => {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section
+        id="education"
+        className={`py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 ${currentTheme.cardBg}`}
+      >
+        <div className="container mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
+            <BookIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
+            ./Education
+          </h2>
+          <div
+            className={`${
+              isDark ? "bg-slate-900" : "bg-white"
+            } p-8 rounded-lg border ${currentTheme.border}`}
+          >
+            <h3 className="text-2xl font-mono mb-2">
+              Thompson Rivers University
+            </h3>
+            <p
+              className={`${currentTheme.secondaryText} text-lg mb-1 font-semibold`}
+            >
+              Bachelor of Computing Science (Co-op)
+            </p>
+            <p className={`${currentTheme.secondaryText} text-sm mb-4`}>
+              September 2022 – April 2027 · Kamloops, BC
+            </p>
+            <p
+              className={`${currentTheme.secondaryText} text-sm sm:text-base mb-2`}
+            >
+              Dean&apos;s List · GPA: 4.0/4.33
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Certifications Section */}
       <section
         id="certifications"
@@ -487,6 +531,26 @@ const Portfolio = ({ isDark, setIsDark }) => {
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* AWS Solutions Architect - Associate */}
+            <div
+              className={`${
+                isDark ? "bg-slate-900" : "bg-white"
+              } p-8 rounded-lg border ${currentTheme.border}`}
+            >
+              <h3 className="text-xl sm:text-2xl font-mono mb-2">
+                AWS Certified Solutions Architect – Associate
+              </h3>
+              <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
+                Issued July 2026
+              </p>
+              <p
+                className={`${currentTheme.secondaryText} text-sm sm:text-base mb-3`}
+              >
+                AWS solutions design and cloud architecture expertise for
+                building secure, scalable systems on AWS.
+              </p>
+            </div>
+
             {/* CompTIA Security+ */}
             <div
               className={`${
@@ -707,14 +771,14 @@ const Portfolio = ({ isDark, setIsDark }) => {
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Cybersecurity Domains */}
+            {/* Security & IAM */}
             <div
               className={`${
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
               <h3 className="text-xl sm:text-2xl font-mono mb-4">
-                Cybersecurity Domains
+                Security & IAM
               </h3>
               <ul
                 className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
@@ -723,53 +787,89 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Security Analysis
+                  Identity & Access Management
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Incident Response
+                  SSO / SAML
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Network Security
+                  MFA & Authentication
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Penetration Testing
+                  RBAC & Authorization
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Digital Forensics
+                  Access Governance
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Encryption
+                  Identity Lifecycle
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Log Analysis
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Security Monitoring
                 </li>
               </ul>
             </div>
 
-            {/* Security Tools & Platforms */}
+            {/* Identity & Security Technologies */}
             <div
               className={`${
                 isDark ? "bg-slate-900" : "bg-white"
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
               <h3 className="text-xl sm:text-2xl font-mono mb-4">
-                Security Tools & Platforms
+                Identity & Security Tools
               </h3>
               <ul
                 className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
               >
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Okta
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Microsoft Entra ID / Azure AD
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  AWS IAM
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Google Admin Console
+                </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -780,38 +880,24 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Wireshark
-                </li>
-
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
                   BeyondTrust
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  HoxHunt
-                </li>
-
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Linux
+                  OAuth 2.0 / OIDC
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Windows Server / PowerShell
+                  SPF / DKIM / DMARC
                 </li>
               </ul>
             </div>
 
-            {/* Cloud & Infrastructure */}
+            {/* Cloud */}
             <div
               className={`${
                 isDark ? "bg-slate-900" : "bg-white"
@@ -833,14 +919,143 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Okta
+                  Azure
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  Azure
+                  SAP BTP
                 </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Google Workspace
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  REST APIs
+                </li>
+              </ul>
+            </div>
+
+            {/* Programming & Automation */}
+            <div
+              className={`${
+                isDark ? "bg-slate-900" : "bg-white"
+              } p-8 rounded-lg border ${currentTheme.border}`}
+            >
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">
+                Programming & Automation
+              </h3>
+              <ul
+                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
+              >
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Python
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  PowerShell
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Bash
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  SQL
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Java
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  JavaScript / TypeScript
+                </li>
+              </ul>
+            </div>
+
+            {/* Development */}
+            <div
+              className={`${
+                isDark ? "bg-slate-900" : "bg-white"
+              } p-8 rounded-lg border ${currentTheme.border}`}
+            >
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">
+                Development
+              </h3>
+              <ul
+                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
+              >
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Flask
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Node.js / Express
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  React
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Git / GitHub
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  REST APIs
+                </li>
+                <li className="flex items-center">
+                  <span
+                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
+                  ></span>
+                  Linux / Unix
+                </li>
+              </ul>
+            </div>
+
+            {/* Endpoint & Enterprise Tools */}
+            <div
+              className={`${
+                isDark ? "bg-slate-900" : "bg-white"
+              } p-8 rounded-lg border ${currentTheme.border}`}
+            >
+              <h3 className="text-xl sm:text-2xl font-mono mb-4">
+                Endpoint & Enterprise Tools
+              </h3>
+              <ul
+                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
+              >
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
@@ -865,75 +1080,17 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   ></span>
                   Jira Service Management
                 </li>
-
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  GitHub
-                </li>
-              </ul>
-            </div>
-
-            {/* Programming & Web Development */}
-            <div
-              className={`${
-                isDark ? "bg-slate-900" : "bg-white"
-              } p-8 rounded-lg border ${currentTheme.border}`}
-            >
-              <h3 className="text-xl sm:text-2xl font-mono mb-4">
-                Programming
-              </h3>
-              <ul
-                className={`space-y-3 ${currentTheme.secondaryText} text-sm sm:text-base`}
-              >
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Python
+                  Windows Server
                 </li>
                 <li className="flex items-center">
                   <span
                     className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
                   ></span>
-                  C
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  C++
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  Java
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  JavaScript
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  React / Next.js
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  HTML
-                </li>
-                <li className="flex items-center">
-                  <span
-                    className={`w-4 h-4 ${currentTheme.dot} rounded-full mr-3`}
-                  ></span>
-                  CSS
+                  Wireshark
                 </li>
               </ul>
             </div>
@@ -952,6 +1109,14 @@ const Portfolio = ({ isDark, setIsDark }) => {
             ./Contact
           </h2>
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-12 justify-center items-center">
+            <a
+              href="#"
+              className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-mono text-sm sm:text-base ${currentTheme.tagBg} ${currentTheme.tagText} ${currentTheme.hover} transition-colors`}
+              title="Resume PDF not yet available"
+              onClick={(e) => e.preventDefault()}
+            >
+              Resume
+            </a>
             <a
               href="https://github.com/Manik-733"
               className={`flex items-center space-x-2 text-base sm:text-lg ${currentTheme.hover} transition-colors`}
