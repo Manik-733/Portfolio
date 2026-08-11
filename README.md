@@ -10,7 +10,7 @@ https://maniksingh.fyi/
 - Fully Responsive Design
 - Terminal-Style Typing Animation
 - Project Filtering & Showcases
-- 🛡Cybersecurity Focus
+- Cybersecurity Focus
 
 ## Tech Stack
 
