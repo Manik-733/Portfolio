@@ -1110,14 +1110,6 @@ const Portfolio = ({ isDark, setIsDark }) => {
           </h2>
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-12 justify-center items-center">
             <a
-              href="#"
-              className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-mono text-sm sm:text-base ${currentTheme.tagBg} ${currentTheme.tagText} ${currentTheme.hover} transition-colors`}
-              title="Resume PDF not yet available"
-              onClick={(e) => e.preventDefault()}
-            >
-              Resume
-            </a>
-            <a
               href="https://github.com/Manik-733"
               className={`flex items-center space-x-2 text-base sm:text-lg ${currentTheme.hover} transition-colors`}
             >
