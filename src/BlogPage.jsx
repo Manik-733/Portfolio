@@ -89,7 +89,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
       date: "2025-10-13",
       readTime: "7 min",
       tags: ["Breach", "Case Study"],
-      image: "dd4.jpg",
+      image: "/dd4.jpg",
       slug: "decrypting-diaries-4",
     },
 
