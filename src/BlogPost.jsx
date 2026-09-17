@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { useParams, Link } from 'react-router-dom';
-import { getAllPosts, getPostBySlug } from './content/posts';
-import { ArrowLeftIcon, BookOpenIcon, HomeIcon, SunIcon, MoonIcon } from 'lucide-react';
-
-
-
+import React, { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { useParams, Link } from "react-router-dom";
+import { getAllPosts, getPostBySlug } from "./content/posts";
+import {
+  ArrowLeftIcon,
+  BookOpenIcon,
+  HomeIcon,
+  SunIcon,
+  MoonIcon,
+} from "lucide-react";
 
 const BlogPost = ({ isDark, setIsDark }) => {
   const { slug } = useParams();
@@ -20,7 +23,7 @@ const BlogPost = ({ isDark, setIsDark }) => {
       border: "border-cyan-500/20",
       cardBg: "bg-slate-800/50",
       hover: "hover:text-cyan-300",
-      prose: "prose-invert"
+      prose: "prose-invert",
     },
     light: {
       bg: "bg-slate-50",
@@ -29,11 +32,19 @@ const BlogPost = ({ isDark, setIsDark }) => {
       border: "border-blue-200",
       cardBg: "bg-white",
       hover: "hover:text-blue-500",
-      prose: "prose-slate"
-    }
+      prose: "prose-slate",
+    },
   };
 
   const currentTheme = isDark ? theme.dark : theme.light;
+  const formattedDate = post
+    ? new Date(`${post.date}T12:00:00Z`).toLocaleDateString("en-US", {
+        timeZone: "UTC",
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })
+    : "";
 
   useEffect(() => {
     // In a real app, you would import the post content here
@@ -41,14 +52,19 @@ const BlogPost = ({ isDark, setIsDark }) => {
     setPost(post);
   }, [slug]);
 
-  if (!post) return (
-    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} flex items-center justify-center`}>
-      <div className="text-2xl">Loading...</div>
-    </div>
-  );
+  if (!post)
+    return (
+      <div
+        className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} flex items-center justify-center`}
+      >
+        <div className="text-2xl">Loading...</div>
+      </div>
+    );
 
   return (
-    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} pb-8`}>
+    <div
+      className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} pb-8`}
+    >
       {/* Theme Toggle */}
       <button
         onClick={() => setIsDark(!isDark)}
@@ -58,7 +74,9 @@ const BlogPost = ({ isDark, setIsDark }) => {
       </button>
 
       {/* Header with Navigation */}
-      <header className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}>
+      <header
+        className={`sticky top-0 z-40 ${currentTheme.bg} border-b ${currentTheme.border} backdrop-blur-sm bg-opacity-95`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center gap-4">
@@ -86,16 +104,22 @@ const BlogPost = ({ isDark, setIsDark }) => {
       </header>
 
       <div className="container mx-auto py-10 sm:py-12 px-6 sm:px-8 lg:px-12">
-        <article className={`prose ${currentTheme.prose} prose-sm sm:prose-base max-w-4xl mx-auto`}>
+        <article
+          className={`prose ${currentTheme.prose} prose-sm sm:prose-base max-w-4xl mx-auto`}
+        >
           <div className="mb-6 sm:mb-8">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">{post.title}</h1>
-            <div className={`flex gap-3 text-sm sm:text-base ${currentTheme.secondaryText}`}>
-              <span>{new Date(post.date).toLocaleDateString()}</span>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
+              {post.title}
+            </h1>
+            <div
+              className={`flex gap-3 text-sm sm:text-base ${currentTheme.secondaryText}`}
+            >
+              <span>{formattedDate}</span>
               <span>·</span>
               <span>{post.readTime}</span>
             </div>
           </div>
-          <ReactMarkdown 
+          <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
               code({ node, inline, className, children, ...props }) {
@@ -104,7 +128,7 @@ const BlogPost = ({ isDark, setIsDark }) => {
                     {children}
                   </code>
                 );
-              }
+              },
             }}
           >
             {post.content}

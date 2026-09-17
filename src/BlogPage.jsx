@@ -92,6 +92,19 @@ const BlogPage = ({ isDark, setIsDark }) => {
       image: "dd4.jpg",
       slug: "decrypting-diaries-4",
     },
+
+    {
+      id: 5,
+      title:
+        "Decrypting Diaries 5: I Used to Think Cybersecurity Was About Hackers",
+      excerpt:
+        "I used to think cybersecurity was mostly about hackers and flashy exploits, then I learned most of the real work is about trust, access, identity, and the boring controls that keep systems secure.",
+      date: "2026-09-17",
+      readTime: "5 min",
+      tags: ["Security", "Identity"],
+      image: "/dd5.jpg",
+      slug: "decrypting-diaries-5",
+    },
   ];
 
   const allTags = ["all", ...new Set(blogPosts.flatMap((post) => post.tags))];
@@ -100,7 +113,7 @@ const BlogPage = ({ isDark, setIsDark }) => {
     .filter(
       (post) =>
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()),
     )
     .filter((post) => activeTag === "all" || post.tags.includes(activeTag));
 
