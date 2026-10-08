@@ -67,11 +67,39 @@ const Portfolio = ({ isDark, setIsDark }) => {
 
   const projects = [
     {
+      title: "Threatle",
+      featured: true,
+      description:
+        "A live cybersecurity training platform with daily puzzles, quizzes, an 8-module Learning Path, and a public leaderboard. I designed it security-first: all grading runs server-side behind signed session tokens, the database enforces row-level security so players can never read answers or submit their own scores, and the custom domain sends authenticated email (SPF, DKIM, DMARC).",
+      highlights: [
+        "Server-side grading with tamper-proof session tickets",
+        "Postgres row-level security and least-privilege access",
+        "Daily Grid shared puzzle, streaks, and leaderboard",
+        "AI-assisted question pipeline with independent answer checks",
+      ],
+      tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Vercel"],
+      links: [{ label: "Live site", href: "https://www.threatle.com" }],
+      category: "security",
+    },
+    {
+      title: "Greenlight",
+      description:
+        "A full-stack film and TV collaboration platform where student and independent creators publish projects, manage verified cast and crew credits, and build a public filmography, with ratings, discovery feeds, and moderation tools.",
+      tags: ["React", "TypeScript", "Next.js", "Supabase", "Tailwind"],
+      links: [
+        { label: "GitHub", href: "https://github.com/Manik-733/Greenlight" },
+        { label: "Live demo", href: "https://greenlight-4jt7.vercel.app/" },
+      ],
+      category: "fullstack",
+    },
+    {
       title: "Cryptographic Web Application",
       description:
         "Developed and deployed a security-focused web application implementing authentication, authorization, RBAC, secure session management, encryption, and protected data workflows.",
       tags: ["Python", "Flask", "AWS", "SQL"],
-      link: "https://github.com/Manik-733/Manik-s-Encryptor",
+      links: [
+        { label: "GitHub", href: "https://github.com/Manik-733/Manik-s-Encryptor" },
+      ],
       category: "security",
     },
     {
@@ -79,7 +107,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
       description:
         "Developed a Python-based security analysis tool that processes network traffic, identifies anomalous patterns, and generates security metrics and visualizations for investigation.",
       tags: ["Python", "Pandas", "NumPy", "Matplotlib"],
-      link: "https://github.com/Manik-733/Network-Analysis-Tool",
+      links: [
+        { label: "GitHub", href: "https://github.com/Manik-733/Network-Analysis-Tool" },
+      ],
       category: "networking",
     },
   ];
@@ -93,7 +123,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
     {
       company: "SAP",
       role: "Support Engineer Intern (iXp, BTP Technical Support)",
-      period: "Sep 2025 – May 2026",
+      period: "Sep 2025 - May 2026",
       location: "Vancouver, BC · Hybrid",
       summary:
         "Investigated authentication, authorization, and secure-access issues across enterprise cloud services. Analyzed SSO and SAML authentication issues, worked with RBAC and identity federation, and performed log analysis for authentication failures.",
@@ -108,7 +138,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
     {
       company: "AbCellera Biologics Inc.",
       role: "IT Help Desk Intern (Co-op)",
-      period: "Jan 2025 – Aug 2025",
+      period: "Jan 2025 - Aug 2025",
       location: "Vancouver, BC · On-site",
       summary:
         "Managed identity lifecycle operations using Okta and Google Admin Console. Monitored security alerts with SentinelOne and worked with endpoint management platforms. Audited and strengthened email authentication controls.",
@@ -126,6 +156,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
     { name: "all", label: "All Projects" },
     { name: "security", label: "Security" },
     { name: "networking", label: "Networking" },
+    { name: "fullstack", label: "Full-Stack" },
   ];
 
   const filteredProjects =
@@ -180,6 +211,12 @@ const Portfolio = ({ isDark, setIsDark }) => {
                 Experience
               </a>
               <a
+                href="#projects"
+                className={`text-lg ${currentTheme.hover} transition-colors`}
+              >
+                Projects
+              </a>
+              <a
                 href="#education"
                 className={`text-lg ${currentTheme.hover} transition-colors`}
               >
@@ -190,12 +227,6 @@ const Portfolio = ({ isDark, setIsDark }) => {
                 className={`text-lg ${currentTheme.hover} transition-colors`}
               >
                 Certifications
-              </a>
-              <a
-                href="#projects"
-                className={`text-lg ${currentTheme.hover} transition-colors`}
-              >
-                Projects
               </a>
               <a
                 href="#skills"
@@ -247,6 +278,13 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   Experience
                 </a>
                 <a
+                  href="#projects"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
+                >
+                  Projects
+                </a>
+                <a
                   href="#education"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
@@ -259,13 +297,6 @@ const Portfolio = ({ isDark, setIsDark }) => {
                   className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
                 >
                   Certifications
-                </a>
-                <a
-                  href="#projects"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-lg ${currentTheme.hover} transition-colors py-2 px-4 rounded-md ${currentTheme.cardBg}`}
-                >
-                  Projects
                 </a>
                 <a
                   href="#skills"
@@ -388,7 +419,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
               a strong focus on cybersecurity and cloud systems. Through co-op
               experiences at AbCellera and SAP iXp, I’ve worked hands-on with
               enterprise infrastructure, endpoint protection, and security
-              automation — blending technical curiosity with practical defense.
+              automation, blending technical curiosity with practical defense.
               My work spans tools like AWS, Intune, Okta, Jamf, and SentinelOne,
               and I’m constantly exploring how development, infrastructure, and
               security intersect. Whether it’s building secure applications,
@@ -484,6 +515,116 @@ const Portfolio = ({ isDark, setIsDark }) => {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section
+        id="projects"
+        className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
+      >
+        <div className="container mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
+            <CodeIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
+            ./Projects
+          </h2>
+
+          <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
+            {filters.map((filter) => (
+              <button
+                key={filter.name}
+                onClick={() => setActiveFilter(filter.name)}
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg transition-colors duration-300 ${
+                  activeFilter === filter.name
+                    ? `${currentTheme.tagBg} ${currentTheme.tagText}`
+                    : `${currentTheme.cardBg} ${currentTheme.border} border`
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {filteredProjects.map((project) => {
+              const ProjectIcon =
+                project.category === "security"
+                  ? LockIcon
+                  : project.category === "networking"
+                    ? NetworkIcon
+                    : CodeIcon;
+
+              return (
+                <div
+                  key={project.title}
+                  className={`${currentTheme.cardBg} p-8 rounded-lg border ${
+                    project.featured
+                      ? `${isDark ? "border-cyan-400/60" : "border-blue-400"} lg:col-span-2`
+                      : currentTheme.border
+                  } hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
+                >
+                  {project.featured && (
+                    <span
+                      className={`inline-block mb-3 text-xs font-mono uppercase tracking-wider ${currentTheme.tagBg} ${currentTheme.tagText} px-2.5 py-1 rounded`}
+                    >
+                      Featured · Live
+                    </span>
+                  )}
+                  <h3 className="text-xl sm:text-2xl font-mono mb-3 flex items-center">
+                    <ProjectIcon size={20} className="mr-2" />
+                    {project.title}
+                  </h3>
+                  <p
+                    className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}
+                  >
+                    {project.description}
+                  </p>
+                  {project.highlights && (
+                    <ul
+                      className={`${currentTheme.secondaryText} grid sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm sm:text-base mb-4`}
+                    >
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start">
+                          <ArrowRightIcon
+                            size={16}
+                            className={`${currentTheme.text} mr-2 mt-1 shrink-0`}
+                          />
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className={`text-xs sm:text-sm ${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center text-sm sm:text-base ${currentTheme.hover} transition-colors`}
+                      >
+                        {link.label === "GitHub" ? (
+                          <GithubIcon size={18} className="mr-2" />
+                        ) : null}
+                        {link.label}
+                        <ExternalLinkIcon size={18} className="ml-2" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Education Section */}
       <section
         id="education"
@@ -508,12 +649,12 @@ const Portfolio = ({ isDark, setIsDark }) => {
               Bachelor of Computing Science (Co-op)
             </p>
             <p className={`${currentTheme.secondaryText} text-sm mb-4`}>
-              September 2022 – April 2027 · Kamloops, BC
+              September 2022 - April 2027 · Kamloops, BC
             </p>
             <p
               className={`${currentTheme.secondaryText} text-sm sm:text-base mb-2`}
             >
-              Dean&apos;s List · GPA: 4.0/4.33
+              Dean&apos;s List · GPA: 4.02/4.33
             </p>
           </div>
         </div>
@@ -538,7 +679,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
               } p-8 rounded-lg border ${currentTheme.border}`}
             >
               <h3 className="text-xl sm:text-2xl font-mono mb-2">
-                AWS Certified Solutions Architect – Associate
+                AWS Certified Solutions Architect - Associate
               </h3>
               <p className={`${currentTheme.secondaryText} text-sm mb-2`}>
                 Issued July 2026
@@ -549,6 +690,14 @@ const Portfolio = ({ isDark, setIsDark }) => {
                 AWS solutions design and cloud architecture expertise for
                 building secure, scalable systems on AWS.
               </p>
+              <a
+                href="https://www.credly.com/badges/87ec9c15-52a0-4805-8601-9779d7decdd5/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${currentTheme.hover} text-sm sm:text-base flex items-center gap-2`}
+              >
+                Verify Credential <ExternalLinkIcon size={18} />
+              </a>
             </div>
 
             {/* CompTIA Security+ */}
@@ -684,77 +833,6 @@ const Portfolio = ({ isDark, setIsDark }) => {
                 Verify Credential <ExternalLinkIcon size={18} />
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section
-        id="projects"
-        className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
-      >
-        <div className="container mx-auto">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono mb-6 sm:mb-8 flex items-center">
-            <CodeIcon size={28} className="mr-3 sm:mr-4 sm:w-8 sm:h-8" />
-            ./Projects
-          </h2>
-
-          <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
-            {filters.map((filter) => (
-              <button
-                key={filter.name}
-                onClick={() => setActiveFilter(filter.name)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg transition-colors duration-300 ${
-                  activeFilter === filter.name
-                    ? `${currentTheme.tagBg} ${currentTheme.tagText}`
-                    : `${currentTheme.cardBg} ${currentTheme.border} border`
-                }`}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={index}
-                className={`${currentTheme.cardBg} p-8 rounded-lg border ${currentTheme.border}
-                  hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
-              >
-                <h3 className="text-xl sm:text-2xl font-mono mb-3 flex items-center">
-                  {project.category === "security" ? (
-                    <LockIcon size={20} className="mr-2" />
-                  ) : (
-                    <NetworkIcon size={20} className="mr-2" />
-                  )}
-                  {project.title}
-                </h3>
-                <p
-                  className={`${currentTheme.secondaryText} text-sm sm:text-base mb-4`}
-                >
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className={`text-xs sm:text-sm ${currentTheme.tagBg} ${currentTheme.tagText} px-3 py-1 rounded`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center text-sm sm:text-base ${currentTheme.hover} transition-colors`}
-                >
-                  Visit <ExternalLinkIcon size={20} className="ml-2" />
-                </a>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -1139,7 +1217,7 @@ const Portfolio = ({ isDark, setIsDark }) => {
         className={`py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-t ${currentTheme.border}`}
       >
         <div className="container mx-auto text-center text-base sm:text-lg text-gray-400">
-          <p>© 2025 Manik Singh. All rights reserved.</p>
+          <p>© 2026 Manik Singh. All rights reserved.</p>
         </div>
       </footer>
     </div>

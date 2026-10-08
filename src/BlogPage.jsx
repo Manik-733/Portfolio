@@ -71,9 +71,9 @@ const BlogPage = ({ isDark, setIsDark }) => {
 
     {
       id: 3,
-      title: "Decrypting Diaries 3: First Blood – My First Real Pentest",
+      title: "Decrypting Diaries 3: First Blood: My First Real Pentest",
       excerpt:
-        "A step-by-step walkthrough of my first penetration test on Metasploitable 2 using Kali Linux — from reconnaissance to root access and persistent control.",
+        "A step-by-step walkthrough of my first penetration test on Metasploitable 2 using Kali Linux, from reconnaissance to root access and persistent control.",
       date: "2025-04-21",
       readTime: "8 min",
       tags: ["Breach", "Project"],
