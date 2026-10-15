@@ -137,17 +137,17 @@ const Portfolio = ({ isDark, setIsDark }) => {
     },
     {
       company: "AbCellera Biologics Inc.",
-      role: "IT Help Desk Intern (Co-op)",
+      role: "IT Co-op",
       period: "Jan 2025 - Aug 2025",
       location: "Vancouver, BC · On-site",
       summary:
-        "Managed identity lifecycle operations using Okta and Google Admin Console. Monitored security alerts with SentinelOne and worked with endpoint management platforms. Audited and strengthened email authentication controls.",
+        "Monitored and investigated security alerts with SentinelOne, secured identity and access across Okta and Google Admin Console, and audited and strengthened email authentication controls.",
       details: [
+        "Monitored and investigated security alerts using SentinelOne.",
         "Managed identity lifecycle operations using Okta and Google Admin Console (provisioning, de-provisioning, MFA, SSO).",
         "Configured and maintained access controls, RBAC, and identity federation.",
-        "Monitored and investigated security alerts using SentinelOne.",
-        "Worked with Intune, Jamf, and Automox for endpoint management and compliance.",
         "Audited SPF, DKIM, and DMARC email authentication controls and documented security procedures.",
+        "Worked with Intune, Jamf, and Automox for endpoint management and compliance.",
       ],
     },
   ];
@@ -442,7 +442,9 @@ const Portfolio = ({ isDark, setIsDark }) => {
             ./Experience
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* items-start keeps each card at its own height, so opening one
+              doesn't stretch the other. */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {experience.map((exp, idx) => {
               const open = expOpen === idx;
               return (
